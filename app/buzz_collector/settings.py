@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'buzz_collection',
-        'USER': 'posgres'
+        'USER': 'postgres'
     }
 }
 

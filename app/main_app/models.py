@@ -2,9 +2,6 @@ from django.db import models
 import os
 from django.contrib.auth.models import User
 
-def some_function(request):
-    my_key = os.environ['SECRET_KEY']
-
 TYPES = (
     ('C', 'Cafe Bought'),
     ('S', 'Store Bought Home Made')
@@ -16,6 +13,29 @@ CATEGORIES = (
     ('IC', 'Iced Coffe'),
     ('R', 'Regular Coffe'),
 )
+# many to one for users 
+class Admin_Coffe(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=200)
+    cof_type = models.CharField('type', max_length=2, choices=TYPES, default=TYPES[0][0])
+    categories = models.CharField('categories', max_length=2, choices=CATEGORIES, default=CATEGORIES[0][0])
+    photo = models.ImageField(upload_to='coffe')
+    rating = models.IntegerField()
+    Favorites = models.IntegerField()
+
+    def _str_(self):
+        return self.name
+
+# many to one for users
+class User_Coffe(models.Model):
+    name = name = models.CharField(max_length=50)
+    description = models.CharField(max_length=200)
+    cof_type = models.CharField('type', max_length=2, choices=TYPES, default=TYPES[0][0])
+    categories = models.CharField('categories', max_length=2, choices=CATEGORIES, default=CATEGORIES[0][0])
+    photo = models.ImageField(upload_to='coffe')
+
+    def _str_(self):
+        return self.name
 
 # User model many to one with favorites, reviews, admin coffe and user coffe
 class Profile(models.Model):
@@ -35,6 +55,8 @@ class Favorites(models.Model):
     def _str_(self):
         return "%S %S" % (self.profile.user.username, self.coffe.name)
 
+
+
 # many to one for users and coffee
 class Reviews(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -45,29 +67,6 @@ class Reviews(models.Model):
     def _str_(self):
         return "%S %S" % (self.profile.user.username, self.coffe.name)
 
-# many to one for users 
-class Admin_Coffe(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
-    cof_type = models.CharField('type', max_length=1, choices=TYPES, default=MEALS[0][0])
-    categories = models.CharField('categories', max_length=1, choices=CATEGORIES, default=MEALS[0][0])
-    photo = models.ImageField(upload_to='coffe')
-    rating = models.IntegerField()
-    Favorites = models.IntergerField()
-
-    def _str_(self):
-        return self.name
-
-# many to one for users
-class User_Coffe(models.Model):
-    name = name = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
-    cof_type = models.CharField('type', max_length=1, choices=TYPES, default=MEALS[0][0])
-    categories = models.CharField('categories', max_length=1, choices=CATEGORIES, default=MEALS[0][0])
-    photo = models.ImageField(upload_to='coffe')
-
-    def _str_(self):
-        return self.name
 
 
 
