@@ -21,7 +21,7 @@ class Admin_Coffe(models.Model):
     categories = models.CharField('categories', max_length=2, choices=CATEGORIES, default=CATEGORIES[0][0])
     photo = models.ImageField(upload_to='coffe')
     rating = models.IntegerField()
-    Favorites = models.IntegerField()
+    favorite_count = models.IntegerField()
 
     def _str_(self):
         return self.name

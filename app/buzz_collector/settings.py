@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'buzz_collector.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'buzz_collection',
+        'NAME': 'buzz_collector',
         'USER': 'postgres'
     }
 }
