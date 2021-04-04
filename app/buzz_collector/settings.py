@@ -17,7 +17,7 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Env 
+# Env
 environ.Env()
 environ.Env.read_env()
 
@@ -84,7 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'buzz_collector',
-        'USER': 'postgres'
+        'USER': 'postgres',
+        'PASSWORD':'1234'
     }
 }
 

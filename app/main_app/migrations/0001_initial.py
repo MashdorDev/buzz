@@ -15,14 +15,14 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Admin_Coffe',
+            name='Admin_Coffee',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
                 ('description', models.CharField(max_length=200)),
                 ('cof_type', models.CharField(choices=[('C', 'Cafe Bought'), ('S', 'Store Bought Home Made')], default='C', max_length=2, verbose_name='type')),
-                ('categories', models.CharField(choices=[('C', 'Cold Coffe'), ('D', 'Decaffeinated'), ('IC', 'Iced Coffe'), ('R', 'Regular Coffe')], default='C', max_length=2, verbose_name='categories')),
-                ('photo', models.ImageField(upload_to='coffe')),
+                ('categories', models.CharField(choices=[('C', 'Cold Coffee'), ('D', 'Decaffeinated'), ('IC', 'Iced Coffe'), ('R', 'Regular Coffe')], default='C', max_length=2, verbose_name='categories')),
+                ('photo', models.ImageField(upload_to='coffee')),
                 ('rating', models.IntegerField()),
                 ('Favorites', models.IntegerField()),
             ],
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('avatar', models.ImageField(upload_to='avatar')),
-                ('admincof', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.admin_coffe')),
+                ('admincof', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.admin_coffee')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(max_length=200)),
                 ('cof_type', models.CharField(choices=[('C', 'Cafe Bought'), ('S', 'Store Bought Home Made')], default='C', max_length=2, verbose_name='type')),
                 ('categories', models.CharField(choices=[('C', 'Cold Coffe'), ('D', 'Decaffeinated'), ('IC', 'Iced Coffe'), ('R', 'Regular Coffe')], default='C', max_length=2, verbose_name='categories')),
-                ('photo', models.ImageField(upload_to='coffe')),
+                ('photo', models.ImageField(upload_to='coffee')),
             ],
         ),
         migrations.CreateModel(
@@ -53,20 +53,20 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('review', models.CharField(max_length=1000)),
                 ('rating', models.IntegerField()),
-                ('coffe', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.admin_coffe')),
+                ('coffee', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.admin_coffe')),
                 ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.profile')),
             ],
         ),
         migrations.AddField(
             model_name='profile',
             name='usercof',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.user_coffe'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.user_coffee'),
         ),
         migrations.CreateModel(
             name='Favorites',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('coffe', models.ManyToManyField(to='main_app.Admin_Coffe')),
+                ('coffee', models.ManyToManyField(to='main_app.Admin_Coffe')),
                 ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.profile')),
             ],
         ),

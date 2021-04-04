@@ -1,0 +1,22 @@
+<h1 class="title">Coffee Details</h1>
+
+<a href="/">Go back home</a>
+
+<div class="card" style="text-align: center;">
+  <div class="card-content">
+    <span class="title is-3 is-spaced"></span>
+    <div class="subtitle">
+      <p>Type:</p>
+    </div>
+    <hr />
+    <p></p>
+  </div>
+  <div class="subtitle">
+    <a class="button is-warning" href="{% url 'coffee_update' coffee.id %}"
+      >Edit</a
+    >
+    <a class="button is-danger" href="{% url 'coffee_delete' coffee.id %}"
+      >Delete</a
+    >
+  </div>
+</div>
