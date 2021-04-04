@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="title is-1 is-spaced"><h1>Coffee List</h1></div>
+
+{% for coffee in coffees %}
+<div class="card" style="margin-top: 10vh;margin-bottom: 10vh;">
+  <div class="card-content">
+    <div class="title is-2" style="margin-top: -1vh;">
+      {{ coffee.name }}
+    </div>
+    <div class="subtitle">
+      <p>Type: {{ coffee.type }}</p>
+    </div>
+    <div class="title">
+      Description
+    </div>
+    <hr />
+    <div class="subtitle">
+      <p>{{ coffee.description }}</p>
+    </div>
+    <div class="button is-success is-light">
+      <a href="{{coffee.id}}">Read More</a>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endblock %}
