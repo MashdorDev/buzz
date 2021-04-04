@@ -18,9 +18,9 @@ CATEGORIES = (
 class Admin_Coffee(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
-    cof_type = models.CharField('type', max_length=2, choices=TYPES, default=TYPES[0][0])
-    categories = models.CharField('categories', max_length=2, choices=CATEGORIES, default=CATEGORIES[0][0])
-    photo = models.ImageField(upload_to='coffee')
+    cof_type = models.CharField('type', max_length=(2), choices=(TYPES), default=TYPES[0][0])
+    categories = models.CharField('categories', max_length=(2), choices=(CATEGORIES), default=CATEGORIES[0][0])
+    # photo = models.ImageField(upload_to='coffee')
     rating = models.IntegerField()
     favorite_count = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
@@ -30,11 +30,11 @@ class Admin_Coffee(models.Model):
 
 # many to one for users
 class User_Coffee(models.Model):
-    name = name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
-    cof_type = models.CharField('type', max_length=2, choices=TYPES, default=TYPES[0][0])
-    categories = models.CharField('categories', max_length=2, choices=CATEGORIES, default=CATEGORIES[0][0])
-    photo = models.ImageField(upload_to='coffee')
+    cof_type = models.CharField('type', max_length=(2), choices=(TYPES), default=TYPES[0][0])
+    categories = models.CharField('categories', max_length=(2), choices=(CATEGORIES), default=CATEGORIES[0][0])
+    # photo = models.ImageField(upload_to='coffee')
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
 
     def _str_(self):
