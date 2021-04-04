@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Admin_Coffee, User_Coffee, Favorites, Reviews
 
+
 # home page
 def home(request):
     return render(request, 'home.html')

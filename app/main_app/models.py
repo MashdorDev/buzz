@@ -1,5 +1,6 @@
 from django.db import models
 import os
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 TYPES = (
@@ -14,8 +15,10 @@ CATEGORIES = (
     ('R', 'Regular Coffe'),
 )
 
+
 # many to one for users
 class Admin_Coffee(models.Model):
+    Store_name = models.CharField('Store name',max_length=50)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
     cof_type = models.CharField('type', max_length=(2), choices=(TYPES), default=TYPES[0][0])
