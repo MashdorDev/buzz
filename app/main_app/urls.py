@@ -1,5 +1,5 @@
 from django.urls import path
-from .models import Admin_Coffee, User_Coffee, Favorites, Reviews
+from .models import Admin_Coffee, User_Coffee, Reviews
 from . import views
 
 urlpatterns = [

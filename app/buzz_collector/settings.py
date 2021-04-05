@@ -85,7 +85,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'buzz_collector',
         'USER': 'postgres',
-        'PASSWORD':'1234'
     }
 }
 
