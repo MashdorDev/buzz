@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .models import Admin_Coffee, User_Coffee, Favorites, Reviews
+from .models import Admin_Coffee, User_Coffee, Reviews
 
 
 # home page
@@ -39,7 +39,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('/')
+            return redirect('//')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()

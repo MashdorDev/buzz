@@ -8,11 +8,3 @@ class Migration(migrations.Migration):
     dependencies = [
         ('main_app', '0001_initial'),
     ]
-
-    operations = [
-        migrations.RenameField(
-            model_name='admin_coffee',
-            old_name='Favorites',
-            new_name='favorite_count',
-        ),
-    ]
