@@ -4,10 +4,10 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 CATEGORIES = (
-    ('C', 'Cold Coffe'),
-    ('D', 'Decaffeinated'),
-    ('IC', 'Iced Coffe'),
-    ('R', 'Regular Coffe'),
+    ('C', 'Coffee'),
+    ('IC', 'Iced Coffee'),
+    ('E', 'Espresso'),
+    ('C', 'Cappucino'),
 )
 
 RATING = (
