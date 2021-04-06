@@ -6,7 +6,14 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Admin_Coffee, User_Coffee, Reviews
+import requests
 
+
+
+url = 'https://api.yelp.com/v3'
+headers = {'Authorization': 'Bearer mpja2hAxPCchPvzHON4utA7xdt7D8OgRMLKc5uz6BA4ro7C0fsSmW2ktFr4fO4Ycdb3WWf2mAL9V4rEqIe6G9qyXcXwcQNboFsc9c8YanYcu5KlI-SEbMA9fqHpqYHYx'}
+
+#r = requests.get(https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972, headers=headers)
 
 # home page
 def home(request):
@@ -33,7 +40,9 @@ class coffee_create( CreateView):
 
 # index store
 def store_index(request):
-    return render(request, 'coffee/store_index.html')
+    r= requests.get("https://api.yelp.com/v3/businesses/search?location=toronto", headers=headers).json()
+    print(r)
+    return render(request, 'coffee/store_index.html' , {"store": r})
 
 # sign up function
 def signup(request):
