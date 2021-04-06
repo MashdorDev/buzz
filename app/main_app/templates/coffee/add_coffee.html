@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %} {% if object %}
+<h1>Edit {{object.name}}</h1>
+{% else %}
+<h1>Add Coffee</h1>
+{% endif %}
+
+<form action="{% url 'coffee_create' %}" enctype="multipart/form-data" method="POST">
+  {% csrf_token %}
+  <label>name: <input name="name" ></label>
+  <br>
+  <label>Type: <select name="categories">
+    <option value="C">Coffee</option>
+    <option value="IC">Iced Coffee</option>
+    <option value="E">Espresso</option>
+    <option value="C">Cappucino</option>
+  </select></label>
+  <br>
+  <label>description:</label> <textarea name="description"></textarea>
+  <br>
+  <label>Store: <input name="store"></label>
+  <br>
+  <label>Photo: <input type="file" name="photo-file"></label>
+  <br>
+  <button>Submit</button>
+</form>
+{% endblock %}
