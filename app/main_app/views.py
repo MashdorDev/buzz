@@ -5,31 +5,29 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .models import Admin_Coffee, User_Coffee, Reviews
+from .models import Admin_Coffee, User_Coffee, Reviews, Profile
+import boto3
+import uuid
 
+S3_BASE_URL = "https://s3.us-east-2.amazonaws.com/"
+BUCKET = "buzzcollector"
+
+# add a photo
+def add_photo(photo_file):
+    # photo-file will be the "name" attribute on the <input type="file">
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            return url
+        except:
+            print('An error occurred uploading file to S3')
 
 # home page
 def home(request):
     return render(request, 'home.html')
-
-
-
-# index coffe page
-def coffee_index(request):
-    coffee = Admin_Coffee.objects.all()
-    return render(request, 'coffee/index.html', {'coffee':coffee})
-
-
-# create coffee form
-class coffee_create( CreateView):
-    model = Admin_Coffee
-    fields = '__all__'
-
-    def form_valid(self, form):
-
-        form.instance.user = self.request.user
-
-        return super().form_valid(form)
 
 # index store
 def store_index(request):
@@ -43,12 +41,35 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            Profile.objects.create(
+                user = user
+            )
             return redirect('/search')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+# index coffe page
+def coffee_index(request):
+    coffee = Admin_Coffee.objects.all()
+    return render(request, 'coffee/index.html', {'coffee':coffee})
+
+# create coffee form
+def coffee_create(request):
+    if request.method == 'POST':
+        User_Coffee.objects.create(
+            name = request.POST['name'],
+            description = request.POST['description'],
+            Store_id = request.POST['store'],
+            categories = request.POST['categories'],
+            photo = add_photo(request.FILES.get('photo-file', None)),
+            profile = Profile.objects.get(id=request.user.id)
+        )
+        return redirect('/profile')
+    else:    
+        return render(request, 'coffee/add_coffee.html')
 
 #view profile
 def profile(request):
