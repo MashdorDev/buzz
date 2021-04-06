@@ -7,11 +7,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Admin_Coffee, User_Coffee, Reviews
 import requests
+import os
 
 
 
 url = 'https://api.yelp.com/v3'
-headers = {'Authorization': 'Bearer mpja2hAxPCchPvzHON4utA7xdt7D8OgRMLKc5uz6BA4ro7C0fsSmW2ktFr4fO4Ycdb3WWf2mAL9V4rEqIe6G9qyXcXwcQNboFsc9c8YanYcu5KlI-SEbMA9fqHpqYHYx'}
+API = os.environ['API_KEY']
+headers = {'Authorization': f'Bearer {API} '}
+print(headers)
 
 #r = requests.get(https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972, headers=headers)
 
