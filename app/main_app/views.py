@@ -40,7 +40,7 @@ class coffee_create( CreateView):
 
 # index store
 def store_index(request):
-    r= requests.get("https://api.yelp.com/v3/businesses/search?location=toronto", headers=headers).json()
+    r= requests.get("https://api.yelp.com/v3/businesses/search?location=toronto&term=coffee", headers=headers).json()
     print(r)
     return render(request, 'coffee/store_index.html' , {"store": r})
 
