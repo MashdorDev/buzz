@@ -31,6 +31,10 @@ class coffee_create( CreateView):
 
         return super().form_valid(form)
 
+# index store
+def store_index(request):
+    return render(request, 'coffee/store_index.html')
+
 # sign up function
 def signup(request):
     error_message = ''
@@ -39,9 +43,45 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('//')
+            return redirect('/search')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+#view profile
+def profile(request):
+    return render(request, 'user/profile.html')
+
+# search page
+def search(request):
+    return render(request, 'main_app/search.html')
+
+# view favorites
+def index_favorites(request):
+    return render(request, 'user/index_user.html')
+
+# top coffee
+def index_top_drinks(request):
+    return render(request, 'main_app/search_results.html')
+
+# top store
+def index_top_shops(request):
+    return render(request, 'main_app/search_results.html')
+
+# type coffee
+def index_type_cof(request):
+    return render(request, 'main_app/search_results.html')
+
+# type iced coffee
+def index_type_ice(request):
+    return render(request, 'main_app/search_results.html')
+
+# type Espresso
+def index_type_esp(request):
+    return render(request, 'main_app/search_results.html')
+
+# type Cappucino
+def index_type_cap(request):
+    return render(request, 'main_app/search_results.html')

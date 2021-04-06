@@ -7,18 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Buzz Stuff</title>
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
   </head>
   <body>
-    {% if user.is_authenticated %}
-    <a href="{% url 'logout' %}">Log Out</a>
-    {% else %}
-    <a href="{% url 'login' %}">Log In</a>
-    <a href="{% url 'signup' %}">Sign Up</a>
-    {% endif %} {% block content %} {% endblock %}
+    <h1> these log in and out buttons are temporary</h1>
+    {% block content %} {% endblock %}
+    
+    <br />
+    <h4>Footer</h4>
+    <a href="{% url 'profile' %}">Profile</a>
+    <a href="{% url 'search' %}">search</a>
+    <a href="{% url 'favorites' %}">Favorites</a>
   </body>
 </html>
