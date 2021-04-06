@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Search page</h1>
+<a href="{% url 'top_shops' %}">Top Rated shops</a>
+<br>
+<a href="{% url 'top_drinks' %}">Top Rated Drinks</a>
+<br>
+<a href="{% url 'type_cof' %}">Coffee</a>
+<br>
+<a href="{% url 'type_ice' %}">Iced Coffee</a>
+<br>
+<a href="{% url 'type_esp' %}">Espresso</a>
+<br>
+<a href="{% url 'type_cap' %}">Cappucino</a>
+
+
+
+<h3>link dump(temporary)</h3>
+<a href="{% url 'coffee_index' %}">coffee page</a>
+<br />
+<a href="{% url 'coffee_create' %}">Add a new coffee</a>
+{% endblock %}

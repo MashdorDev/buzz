@@ -86,7 +86,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'buzz_collector',
         'USER': 'postgres',
-        'PASSWORD':'1234'
     }
 }
 
@@ -127,4 +126,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/return/'
+STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/search/'
+LOGOUT_REDIRECT_URL = '/'

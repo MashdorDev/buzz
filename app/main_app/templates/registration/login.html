@@ -1,13 +1,21 @@
-{% extends 'base.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Buzz Stuff</title>
+  </head>
+  <body>
+        <h1>Log In</h1>
 
-<h1>Log In</h1>
-
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
-
-{% endblock %}
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn" value="login">
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+        <br />
+        <a href="{% url 'signup' %}">Sign Up</a>
+    </body>
+</html>

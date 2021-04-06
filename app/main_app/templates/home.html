@@ -1,8 +1,20 @@
-{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Buzz Stuff</title>
+    </head>
+    <body>
+        <h1>Welcome to Buz!</h1>
 
-<h1>Home Page Welcome!</h1>
+            {% if user.is_authenticated %}
+            <a href="{% url 'search' %}">Start Sippin</a>
+            {% else %}
+            <a href="{% url 'login' %}">Start Sippin</a>
+            {% endif %}
+    </body>
+</html>
 
-<a href="coffee/">coffee page</a>
-<br />
-<a href="coffee/create/">Add a new coffee</a>
-{% endblock %}
+
