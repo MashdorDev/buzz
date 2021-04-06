@@ -9,6 +9,9 @@ from .models import Admin_Coffee, User_Coffee, Reviews, Profile
 import boto3
 import uuid
 
+S3_BASE_URL = "https://s3.us-east-2.amazonaws.com/"
+BUCKET = "buzzcollector"
+
 # add a photo
 def add_photo(photo_file):
     # photo-file will be the "name" attribute on the <input type="file">
