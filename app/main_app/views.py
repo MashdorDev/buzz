@@ -11,6 +11,7 @@ import uuid
 import requests
 import os
 
+
 S3_BASE_URL = "https://s3.us-east-2.amazonaws.com/"
 BUCKET = "buzzcollector"
 
@@ -99,6 +100,10 @@ def profile(request):
 # search page
 def search(request):
     return render(request, 'main_app/search.html')
+
+def searching(request):
+    results = Admin_Coffee.objects.filter(name__icontains=request.POST['search'])
+    return render(request, 'main_app/coffee_results.html', {'coffee':results})
 
 # view favorites
 def index_favorites(request):

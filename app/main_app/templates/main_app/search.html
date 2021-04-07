@@ -1,4 +1,10 @@
 {% extends 'base.html' %} {% block content %}
+<form action="/searching/" method="POST">
+    {% csrf_token %}
+    <input name="search">
+    <button>Search</button>
+</form>
+
 
 <h1>Search page</h1>
 <a href="{% url 'top_shops' %}">Top Rated shops</a>

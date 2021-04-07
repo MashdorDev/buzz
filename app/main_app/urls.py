@@ -13,6 +13,7 @@ urlpatterns = [
     path('coffee/create/', views.coffee_create, name='coffee_create'),
     path('profile/', views.profile, name='profile'),
     path('search/', views.search, name='search'),
+    path('searching/', views.searching, name='searching'),
     path('profile/favorites', views.index_favorites, name='favorites'),
     path('topdrinks/', views.index_top_drinks, name='top_drinks'),
     path('topshops/', views.index_top_shops, name='top_shops'),
