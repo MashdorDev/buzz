@@ -80,7 +80,7 @@ def index_top_drinks(request):
 
 # top store
 def index_top_shops(request):
-    r = requests.get("https://api.yelp.com/v3/businesses/search?location=toronto&sort_by=rating", headers=headers).json()
+    r = requests.get("https://api.yelp.com/v3/businesses/search?location=ontario&sort_by=rating&categories=coffee", headers=headers).json()
     print(r)
     return render(request, 'main_app/search_results.html', {'categories': r})
 
