@@ -3,4 +3,16 @@
 <h1>search results</h1>
 <a href="{% url 'coffee_index' %}">coffee page</a>
 <a href="{% url 'store_index' %}">Store page</a>
+
+
+
+
+
+{% for c in categories.businesses %}
+
+<h1>{{c.name}}</h1>
+<h5>{{c.rating}}</h5>
+
+{% endfor %}
+
 {% endblock %}

@@ -28,7 +28,7 @@ if os.path.isfile(dotenv_file):
 
 # UPDATE secret key
 API_KEY = os.environ['API_KEY'] # Instead of your actual secret key
-print(API_KEY)
+
 # Env
 
 
