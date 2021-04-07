@@ -21,6 +21,6 @@ urlpatterns = [
     path('type/esp', views.index_type_esp, name='type_esp'),
     path('type/cap', views.index_type_cap, name='type_cap'),
     path('coffee/', views.coffee_index, name='index'),
-    path('coffee/create/', views.coffee_create.as_view(), name = 'coffee_create'),
+    path('coffee/create/', views.coffee_create, name = 'coffee_create'),
     path('api-auth/', include('rest_framework.urls')),
 ]
