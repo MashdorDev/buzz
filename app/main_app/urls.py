@@ -1,7 +1,6 @@
 from django.urls import path, include
 from .models import Admin_Coffee, User_Coffee, Reviews
 from . import views
-from rest_framework import routers, serializers, viewsets
 
 
 
@@ -21,5 +20,4 @@ urlpatterns = [
     path('type/esp', views.index_type_esp, name='type_esp'),
     path('type/cap', views.index_type_cap, name='type_cap'),
     path('coffee/', views.coffee_index, name='index'),
-    path('api-auth/', include('rest_framework.urls')),
 ]
