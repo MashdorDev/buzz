@@ -6,17 +6,21 @@
   <div class="card-content">
     <span class="title is-3 is-spaced"></span>
     <div class="subtitle">
-      <p>Type:</p>
+      <img src="{{coffee.0.photo}}" alt="Photo of the coffee">
+      <h1>Name: {{coffee.name}}</h1>
+      <h2>type : {{coffee.categories}}</h2>
+      <h3>type : {{coffee.store_id}}</h3>
+      <h4>description : {{coffee.description}}</h4>
+
+      <h3></h3>
     </div>
     <hr />
     <p></p>
   </div>
   <div class="subtitle">
-    <a class="button is-warning" href="{% url 'coffee_update' coffee.id %}"
-      >Edit</a
-    >
-    <a class="button is-danger" href="{% url 'coffee_delete' coffee.id %}"
-      >Delete</a
-    >
+
+      <a href="#">Edit</a>
+
+      <a href="">Delete</a>
   </div>
 </div>
