@@ -3,4 +3,29 @@
 <h1>search results</h1>
 <a href="{% url 'coffee_index' %}">coffee page</a>
 <a href="{% url 'store_index' %}">Store page</a>
+
+{% for c in categories.businesses %}
+<hr>
+<br>
+<img src="{{c.image_url}}" alt="" style="width: 50vh; hieght:10vh;">
+<h3>Name : {{c.name}}</h3>
+<h4>rating : {{c.rating}}</h4>
+<h4>Reviews : {{c.review_count}}</h4>
+{% if c.price != false %}
+<h6>Price : {{c.price}}</h6>
+{% elif c.price == false %}
+<h6>Price : Sorry No Price Given</h6>
+{% endif %}
+<!-- pick up and Delivery -->
+{% if c.transactions.0 != false and c.transactions.1 != false  %}
+This Caffee offers : {{c.transactions.0}} and {{c.transactions.1}}
+
+{% elif c.transactions.0 != false  %}
+This Caffee offers : Only {{c.transactions.0}}
+
+{% else %}
+This Caffee Doesn't Offer Pickup Or Delivery
+
+{% endif %}
+{% endfor %}
 {% endblock %}

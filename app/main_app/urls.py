@@ -1,13 +1,15 @@
-from django.urls import path
+from django.urls import path, include
 from .models import Admin_Coffee, User_Coffee, Reviews
 from . import views
+
+
 
 urlpatterns = [
     path('', views.home, name = 'home'),
     path('accounts/signup/', views.signup, name= 'signup'),
     path('coffee/', views.coffee_index, name='coffee_index'),
     path('store/', views.store_index, name='store_index'),
-    path('coffee/create/', views.coffee_create, name = 'coffee_create'),
+    path('coffee/create/', views.coffee_create, name='coffee_create'),
     path('profile/', views.profile, name='profile'),
     path('search/', views.search, name='search'),
     path('profile/favorites', views.index_favorites, name='favorites'),

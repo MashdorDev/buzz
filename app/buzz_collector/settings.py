@@ -12,15 +12,25 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import environ
+import dotenv
 import os
 
+environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Add .env variables anywhere before SECRET_KEY
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+# UPDATE secret key
+API_KEY = os.environ['API_KEY'] # Instead of your actual secret key
+
 # Env
-environ.Env()
-environ.Env.read_env()
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -86,6 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'buzz_collector',
         'USER': 'postgres',
+        'PASSWORD':'1234',
     }
 }
 
