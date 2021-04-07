@@ -21,6 +21,15 @@
 {% elif c.price == false %}
 <h6>Price : Sorry No Price Given</h6>
 {% endif %}
+{% if c.transactions.0 != false and c.transactions.1 != false  %}
+This Caffee offers : {{c.transactions.0}} and {{c.transactions.1}}
+{% elif c.transactions.0 != true and c.transactions.1 != false %}
+This Caffee offers : Only {{c.transactions.1}} c.transactions.1
+{% elif c.transactions.0 == false and c.transactions.1 == true %}
+This Caffee offers : Only {{c.transactions.0}}  c.transactions.0
+{% elif c.transactions.0 == false and c.transactions.1 == false %}
+This Caffee Doesn't Offer Pickup Or Delivery
+{% endif %}
 {% endfor %}
 
 {% endblock %}
