@@ -1,6 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 from .models import Admin_Coffee, User_Coffee, Reviews
 from . import views
+from rest_framework import routers, serializers, viewsets
+
+
 
 urlpatterns = [
     path('', views.home, name = 'home'),
@@ -17,4 +20,7 @@ urlpatterns = [
     path('type/ice', views.index_type_ice, name='type_ice'),
     path('type/esp', views.index_type_esp, name='type_esp'),
     path('type/cap', views.index_type_cap, name='type_cap'),
+    path('coffee/', views.coffee_index, name='index'),
+    path('coffee/create/', views.coffee_create.as_view(), name = 'coffee_create'),
+    path('api-auth/', include('rest_framework.urls')),
 ]
