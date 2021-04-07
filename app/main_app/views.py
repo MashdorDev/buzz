@@ -107,7 +107,7 @@ def index_top_shops(request):
 
 # type coffee
 def index_type_cof(request):
-    coffee = User_Coffee.objects.all()
+    coffee = Admin_Coffee.objects.all()
     return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # type iced coffee
