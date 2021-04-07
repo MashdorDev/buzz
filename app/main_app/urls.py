@@ -10,7 +10,7 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name= 'signup'),
     path('coffee/', views.coffee_index, name='coffee_index'),
     path('store/', views.store_index, name='store_index'),
-    path('coffee/create/', views.coffee_create, name = 'coffee_create'),
+    path('coffee/create/', views.coffee_create, name='coffee_create'),
     path('profile/', views.profile, name='profile'),
     path('search/', views.search, name='search'),
     path('profile/favorites', views.index_favorites, name='favorites'),
@@ -21,6 +21,5 @@ urlpatterns = [
     path('type/esp', views.index_type_esp, name='type_esp'),
     path('type/cap', views.index_type_cap, name='type_cap'),
     path('coffee/', views.coffee_index, name='index'),
-    path('coffee/create/', views.coffee_create, name = 'coffee_create'),
     path('api-auth/', include('rest_framework.urls')),
 ]

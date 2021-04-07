@@ -41,7 +41,7 @@ def home(request):
 
 # index store
 def store_index(request):
-    r = requests.get("https://api.yelp.com/v3/businesses/search?location=toronto&term=coffee", headers=headers).json()
+    r = requests.get("https://api.yelp.com/v3/businesses/search?location=toronto&term=coffee&limit=50", headers=headers).json()
 
     return render(request, 'coffee/store_index.html', {"store": r})
 
@@ -76,8 +76,8 @@ def coffee_create(request):
             description = request.POST['description'],
             Store_id = request.POST['store'],
             categories = request.POST['categories'],
-            photo = add_photo(request.FILES.get('photo-file', None)),
-            profile = Profile.objects.get(id=request.user.id)
+            # photo = add_photo(request.FILES.get('photo-file', None)),
+            profile = Profile.objects.get(user_id=request.user.id)
         )
         return redirect('/profile')
     else:
@@ -101,7 +101,7 @@ def index_top_drinks(request):
 
 # top store
 def index_top_shops(request):
-    r = requests.get("https://api.yelp.com/v3/businesses/search?location=ontario&sort_by=rating&categories=coffee", headers=headers).json()
+    r = requests.get("https://api.yelp.com/v3/businesses/search?location=ontario&sort_by=rating&categories=coffee&limit=50", headers=headers).json()
     print(r)
     return render(request, 'main_app/search_results.html', {'categories': r})
 
