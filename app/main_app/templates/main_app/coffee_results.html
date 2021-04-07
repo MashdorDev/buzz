@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 
 {% for c in coffee  %}
-{{c.name}}
+
+
+<a href="{% url 'coffee_detail' c.id %}">{{c.name}}</a>
 <br>
 {% endfor %}
 {% endblock %}

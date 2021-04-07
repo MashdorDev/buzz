@@ -69,6 +69,15 @@ def coffee_index(request):
     coffee = Admin_Coffee.objects.all()
     return render(request, 'coffee/index.html', {'coffee':coffee})
 
+# Coffee Details
+def coffee_detail(request, coff_id):
+    print(id)
+    coffee = Admin_Coffee.objects.get(id=coff_id)
+    print(coffee)
+    return render(request, "coffee/detail.html", {'coffee': coffee})
+
+
+
 # create coffee form
 def coffee_create(request):
     if request.method == 'POST':
@@ -107,25 +116,27 @@ def index_top_drinks(request):
 # top store
 def index_top_shops(request):
     r = requests.get("https://api.yelp.com/v3/businesses/search?location=toronto&sort_by=rating&categories=coffee&limit=50", headers=headers).json()
-    print(r)
     return render(request, 'main_app/search_results.html', {'categories': r})
 
 # type coffee
 def index_type_cof(request):
-    coffee = Admin_Coffee.objects.all()
+    coffee = Admin_Coffee.objects.filter(categories="C")
     return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # type iced coffee
 def index_type_ice(request):
-    return render(request, 'main_app/search_results.html')
+    coffee = Admin_Coffee.objects.filter(categories="IC")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # type Espresso
 def index_type_esp(request):
-    return render(request, 'main_app/search_results.html')
+    coffee = Admin_Coffee.objects.filter(categories="E")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # type Cappucino
 def index_type_cap(request):
-    return render(request, 'main_app/search_results.html')
+    coffee = Admin_Coffee.objects.filter(categories="C")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # adming coffee approval
 def admin_approval(request):

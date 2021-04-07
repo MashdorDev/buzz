@@ -9,6 +9,7 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name= 'signup'),
     path('coffee/', views.coffee_index, name='coffee_index'),
     path('store/', views.store_index, name='store_index'),
+    path('coffee/detail/<int:coff_id>', views.coffee_detail, name='coffee_detail'),
     path('coffee/create/', views.coffee_create, name='coffee_create'),
     path('profile/', views.profile, name='profile'),
     path('search/', views.search, name='search'),
