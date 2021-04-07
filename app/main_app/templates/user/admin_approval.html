@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Admin Approval</h1>
+
+<form action="{% url 'approved' coffee.0.id %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <label>name: <input name="name" value="{{coffee.0.name}}"></label>
+    <br>
+    <p>Coffee, Iced Coffee, Espresso, Cappucino</p>
+    <label>Type: <input name="categories" value="{{coffee.0.categories}}"></label>
+    <br>
+    <label>description:</label> <textarea name="description" value="{{coffee.0.description}}"></textarea>
+    <br>
+    <label>Store: <input name="store" value = "{{coffee.0.store_id}}"></label>
+    <br>
+    <label>Photo <input name="photo-file" value = "{{coffee.0.photo}}"></label>
+    <br>
+    <label>User Profile <input name="profile" value = "{{coffee.0.profile}}"></label>
+    <button>Approve</button>
+</form>
+
+{% endblock %}

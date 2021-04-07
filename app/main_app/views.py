@@ -62,7 +62,7 @@ def coffee_create(request):
         User_Coffee.objects.create(
             name = request.POST['name'],
             description = request.POST['description'],
-            Store_id = request.POST['store'],
+            store_id = request.POST['store'],
             categories = request.POST['categories'],
             photo = add_photo(request.FILES.get('photo-file', None)),
             profile = Profile.objects.get(id=request.user.id)
@@ -106,3 +106,22 @@ def index_type_esp(request):
 # type Cappucino
 def index_type_cap(request):
     return render(request, 'main_app/search_results.html')
+
+# adming coffee approval
+def admin_approval(request):
+    coffee = User_Coffee.objects.all
+    return render(request,'user/admin_approval.html', {'coffee':coffee})
+
+# admin coffee approved
+def approved(request, cof_id):
+    c = User_Coffee.objects.get(id=cof_id)
+    Admin_Coffee.objects.create(
+        name = request.POST['name'],
+        description = request.POST['description'],
+        store_id = request.POST['store'],
+        categories = request.POST['categories'],
+        photo = request.POST['photo-file'],
+        profile = c.profile
+    )
+    c.delete()
+    return redirect('/approval/admin')

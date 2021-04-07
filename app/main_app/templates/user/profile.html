@@ -7,5 +7,9 @@
     <a>Add a Drink</a>
     <a>Submitted Drinks</a>
     <a href="{% url 'logout' %}">Log Out</a>
+
+    {% if user.is_staff %}
+            <a href="{% url 'admin_approval' %}">Admin approval</a>
+    {% endif %}
 {% endif %}
 {% endblock %}
