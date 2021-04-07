@@ -19,5 +19,6 @@ urlpatterns = [
     path('type/ice', views.index_type_ice, name='type_ice'),
     path('type/esp', views.index_type_esp, name='type_esp'),
     path('type/cap', views.index_type_cap, name='type_cap'),
-    path('coffee/', views.coffee_index, name='index'),
+    path('approval/admin', views.admin_approval, name='admin_approval'),
+    path('approved/<int:cof_id>', views.approved, name='approved'),
 ]

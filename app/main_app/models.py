@@ -25,12 +25,12 @@ class Profile(models.Model):
 class Admin_Coffee(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
-    Store_id = models.CharField('Store name',max_length=50)
+    store_id = models.CharField('Store name',max_length=50)
     categories = models.CharField('Categories', max_length=(2), choices=(CATEGORIES), default=CATEGORIES[0][0])
     photo = models.CharField(max_length=200)
-    rating = models.IntegerField()
+    rating = models.IntegerField(default=0)
     profile = models.ForeignKey(Profile,related_name='usersubad', on_delete=models.CASCADE, default=0)
-    favorite_count = models.IntegerField()
+    favorite_count = models.IntegerField(default=0)
     favorites = models.ManyToManyField(Profile)
 
     def _str_(self):
@@ -40,7 +40,7 @@ class Admin_Coffee(models.Model):
 class User_Coffee(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
-    Store_id = models.CharField('Store name',max_length=50)
+    store_id = models.CharField('Store name',max_length=50)
     categories = models.CharField('Categories', max_length=(2), choices=(CATEGORIES), default=CATEGORIES[0][0])
     photo = models.CharField(max_length=200)
     profile = models.ForeignKey(Profile, related_name='usersub', on_delete=models.CASCADE, default=0)
