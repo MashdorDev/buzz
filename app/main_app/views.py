@@ -115,21 +115,23 @@ def index_top_shops(request):
 
 # type coffee
 def index_type_cof(request):
-    coffee = Admin_Coffee.objects.all()
-    print(coffee)
+    coffee = Admin_Coffee.objects.filter(categories="C")
     return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # type iced coffee
 def index_type_ice(request):
-    return render(request, 'main_app/search_results.html')
+    coffee = Admin_Coffee.objects.filter(categories="IC")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # type Espresso
 def index_type_esp(request):
-    return render(request, 'main_app/search_results.html')
+    coffee = Admin_Coffee.objects.filter(categories="E")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # type Cappucino
 def index_type_cap(request):
-    return render(request, 'main_app/search_results.html')
+    coffee = Admin_Coffee.objects.filter(categories="C")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # adming coffee approval
 def admin_approval(request):
