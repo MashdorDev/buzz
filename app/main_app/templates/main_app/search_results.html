@@ -9,38 +9,40 @@
 </h1>
 {% for c in categories.businesses %}
 <br />
-<div class="card">
-  <div
-    class="columns is-multiline is-mobile"
-    style="display: flex;
-           justify-content: center;
-           align-items: center;"
-  >
+<a href="/store/{{c.id}}">
+  <div class="card">
     <div
-      class="column is-5"
+      class="columns is-multiline is-mobile"
       style="display: flex;
            justify-content: center;
            align-items: center;"
     >
-      <img
-        src="{{c.image_url}}"
-        alt="Store Picture"
-        style=" width:30vw;
+      <div
+        class="column is-5"
+        style="display: flex;
+           justify-content: center;
+           align-items: center;"
+      >
+        <img
+          src="{{c.image_url}}"
+          alt="Store Picture"
+          style=" width:30vw;
       height:18vh;         display: flex;
                justify-content: center;
                align-items: center;"
-      />
-    </div>
-    <div class="column">
-      <div class="bd-notification is-primary">
-        <h3>{{c.name}}</h3>
-        <h4>rating : {{c.rating}}</h4>
-        <a href="/store/{{c.id}}">Details</a>
-        <h4>Reviews : {{c.review_count}}</h4>
+        />
+      </div>
+      <div class="column">
+        <div class="bd-notification is-primary">
+          <h3>{{c.name}}</h3>
+          <h4>rating : {{c.rating}}</h4>
+
+          <h4>Reviews : {{c.review_count}}</h4>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</a>
 <br />
 <!--
 
