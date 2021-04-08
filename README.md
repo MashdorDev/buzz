@@ -12,7 +12,9 @@
 <h1 align ="center">
 The app that fuels your day
 </h1>
-<br/>
+
+
+        
 # About Buzz
 
 An app that helps you discover great coffee around Toronto!
