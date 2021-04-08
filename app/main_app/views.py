@@ -127,16 +127,14 @@ def searching(request):
 
 # view favorites
 def index_favorites(request):
-    coffee = Admin_Coffee.objects.all()
-    test = coffee.objects.get(Profile.objects.get(user_id=request.user.id))
-    print('test')
+    coffee = Admin_Coffee.objects.filter(favorites__id=Profile.objects.get(user_id=request.user.id).id)
     return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
-    return redirect('/profile/')
 
 # add to favorites
 def add_favorite(request, coff_id):
+    print('hello')
     coffee= Admin_Coffee.objects.get(id=coff_id)
-    coffee.add(favorties=Profile.objects.get(user_id=request.user.id))
+    coffee.favorites.add(Profile.objects.get(user_id=request.user.id))
     coffee.save()
     return redirect('/coffee/detail/%s/' % (coff_id))
 

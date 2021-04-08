@@ -8,10 +8,10 @@ urlpatterns = [
     path('', views.home, name = 'home'),
     path('accounts/signup/', views.signup, name= 'signup'),
     path('store/<str:store_id>/', views.store_details, name='store_details'),
+    path('addfavorite/<int:coff_id>/', views.add_favorite, print('test'), name="add_favorite"),
     path('coffee/detail/<int:coff_id>/', views.coffee_detail, name='coffee_detail'),
     path('coffee/create/<str:store_id>/', views.coffee_create, name='coffee_create'),
     path('addreview/<int:coff_id>/', views.create_review, name='review_create'),
-    path('addfavorite/int:coff_id>/', views.add_favorite, name="add_favorite"),
     # search page and cattegories
     path('search/', views.search, name='search'),
     path('searching/', views.searching, name='searching'),

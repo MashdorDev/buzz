@@ -7,7 +7,7 @@
     <span class="title is-3 is-spaced"></span>
     <div class="subtitle">
       <img src="{{coffee.photo}}" alt="Photo of the coffee">
-      <form method="POST" ation= '/addfavorite/{{coffee.ID}}'>
+      <form method="POST" action= '/addfavorite/{{coffee.id}}/'>
         {% csrf_token %}
         <button>Favorite</button>
       </form>
