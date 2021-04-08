@@ -34,17 +34,10 @@ API = os.environ['API_KEY']
 headers = {'Authorization': f'Bearer {API} '}
 
 
-#r = requests.get(https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972, headers=headers)
-
 # home page
 def home(request):
     return render(request, 'home.html')
 
-# index store
-def store_index(request):
-    r = requests.get("https://api.yelp.com/v3/businesses/search?location=toronto&term=coffee&limit=50", headers=headers).json()
-
-    return render(request, 'coffee/store_index.html', {"store": r})
 
 # sign up function
 def signup(request):
@@ -71,27 +64,54 @@ def coffee_index(request):
 
 # Coffee Details
 def coffee_detail(request, coff_id):
-    print(id)
     coffee = Admin_Coffee.objects.get(id=coff_id)
-    print(coffee)
-    return render(request, "coffee/detail.html", {'coffee': coffee})
+    rev = Reviews.objects.filter(coffee_id=coff_id)
+    store = requests.get("https://api.yelp.com/v3/businesses/"+ coffee.store_id, headers=headers).json()
+    return render(request, "coffee/detail.html", {'coffee': coffee, 'store': store, 'reviews': rev})
 
+# add a review
+def create_review(request, coff_id):
+    coffee = Admin_Coffee.objects.get(id=coff_id)
+    if request.method == 'POST':
+        Reviews.objects.create(
+            review = request.POST['review'],
+            rating = request.POST['rating'],
+            coffee_id = coff_id,
+            profile = Profile.objects.get(user_id=request.user.id)
+        )
+        update = Reviews.objects.filter(coffee_id=coff_id)
+        rate = 0
+        count = 0
+        for i in update:
+            count += 1
+            rate += int(i.rating)
+        coffee.rating = round(rate/count, 1)
+        coffee.save()
+        return redirect('/coffee/detail/%s/' % (coff_id))
+    else:
+        return render(request, 'coffee/review.html', {"coffee": coffee })
+
+# Store detail page
+def store_details(request, store_id):
+    r = requests.get("https://api.yelp.com/v3/businesses/"+ store_id, headers=headers).json()
+    return render(request, 'coffee/store_index.html', {"store": r})
 
 
 # create coffee form
-def coffee_create(request):
+def coffee_create(request, store_id):
+    r = requests.get("https://api.yelp.com/v3/businesses/"+ store_id, headers=headers).json()
     if request.method == 'POST':
         User_Coffee.objects.create(
             name = request.POST['name'],
             description = request.POST['description'],
-            store_id = request.POST['store'],
+            store_id = store_id,
             categories = request.POST['categories'],
-            # photo = add_photo(request.FILES.get('photo-file', None)),
+            photo = add_photo(request.FILES.get('photo-file', None)),
             profile = Profile.objects.get(user_id=request.user.id)
         )
         return redirect('/profile')
     else:
-        return render(request, 'coffee/add_coffee.html')
+        return render(request, 'coffee/add_coffee.html', {'store': r})
 
 #view profile
 def profile(request):
@@ -102,16 +122,23 @@ def search(request):
     return render(request, 'main_app/search.html')
 
 def searching(request):
-    results = Admin_Coffee.objects.filter(name__icontains=request.POST['search'])
-    return render(request, 'main_app/coffee_results.html', {'coffee':results})
+    if request.POST['selector']=='store':
+        results = requests.get("https://api.yelp.com/v3/businesses/search?location=toronto&sort_by=rating&categories=coffee&limit=50&term=" + request.POST["search"], headers=headers).json()
+        return render(request, 'main_app/search_results.html', {'categories':results})
+    else:
+        results = Admin_Coffee.objects.filter(name__icontains=request.POST['search'])
+        return render(request, 'main_app/coffee_results.html', {'coffee': results})
 
 # view favorites
 def index_favorites(request):
-    return render(request, 'user/index_user.html')
+    profile = Profile.objects.get(user_id=request.user.id)
+    coffee = Admin_Coffee.objects.get(favorites)
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # top coffee
 def index_top_drinks(request):
-    return render(request, 'main_app/search_results.html')
+    coffee = Admin_Coffee.objects.all().order_by('-rating')
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
 # top store
 def index_top_shops(request):
@@ -140,8 +167,11 @@ def index_type_cap(request):
 
 # adming coffee approval
 def admin_approval(request):
-    coffee = User_Coffee.objects.all
-    return render(request,'user/admin_approval.html', {'coffee':coffee})
+    coffee = User_Coffee.objects.all()
+    test = coffee[0].name
+    print("result print %s" % (test))
+    return render(request,'user/admin_approval.html', {'coffee':coffee, "length": len(coffee) - 1})
+    # return redirect("/profile/")
 
 # admin coffee approved
 def approved(request, cof_id):
@@ -154,5 +184,11 @@ def approved(request, cof_id):
         photo = request.POST['photo-file'],
         profile = c.profile
     )
+    c.delete()
+    return redirect('/approval/admin')
+
+# delete a coffee
+def delete_ad(request, cof_id):
+    c = User_Coffee.objects.get(id=cof_id)
     c.delete()
     return redirect('/approval/admin')
