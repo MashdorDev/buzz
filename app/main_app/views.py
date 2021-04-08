@@ -113,9 +113,6 @@ def coffee_create(request, store_id):
     else:
         return render(request, 'coffee/add_coffee.html', {'store': r})
 
-#view profile
-def profile(request):
-    return render(request, 'user/profile.html')
 
 # search page
 def search(request):
@@ -165,13 +162,26 @@ def index_type_cap(request):
     coffee = Admin_Coffee.objects.filter(categories="C")
     return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
 
+# view profile
+def profile(request):
+    using = Profile.objects.get(user_id=request.user.id)
+    return render(request, 'user/profile.html', {'using':using})
+
+# change avatar image
+def create_avatar(request):
+    using = Profile.objects.get(user_id=request.user.id)
+    if request.method == 'POST':
+        using.avatar = add_photo(request.FILES.get('photo-file', None))
+        using.save()
+        return redirect('/profile')
+    else:
+        return render(request, 'user/avatar.html', {'using': using})
+
 # adming coffee approval
 def admin_approval(request):
     coffee = User_Coffee.objects.all()
     test = coffee[0].name
-    print("result print %s" % (test))
     return render(request,'user/admin_approval.html', {'coffee':coffee, "length": len(coffee) - 1})
-    # return redirect("/profile/")
 
 # admin coffee approved
 def approved(request, cof_id):
