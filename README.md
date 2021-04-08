@@ -1,6 +1,6 @@
 # Buzz
 
-###The app that fuels your day
+### The app that fuels your day
 
 # About Buzz
 
@@ -29,7 +29,7 @@ goals of the project
 
 # ERD 
 
-[![](https://i.imgur.com/kEyo9cI.png)](#)
+[![](https://i.imgur.com/UTb19kK.png)](#)
 
 
 <hr>
