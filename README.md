@@ -10,7 +10,7 @@
   </a>
 </p>
 <h1 align ="center">
-### The app that fuels your day
+The app that fuels your day
 </h1>
 # About Buzz
 
