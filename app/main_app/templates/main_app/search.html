@@ -1,61 +1,100 @@
-{% extends 'base.html' %} {% block content %} <<<<<<< HEAD
+{% extends 'base.html' %} {% block content %}
 
-<h1 class="title is-1" style="text-align: center;">Discover</h1>
+<h1
+  class="title is-3"
+  style="text-align: center; margin: 0; margin-bottom: 2vh; margin-top: 1vh;"
+>
+  Discover
+</h1>
 
-<div class="field has-addons" style="margin-left: 10vw;">
+<!-- start of search bar -->
+<div class="field has-addons">
+  <select name="selector">
+    <option value="store">Search Stores</option>
+    <option value="drinks">Search Drinks</option>
+  </select>
   <div class="control is-expanded">
     <input class="input" type="text" placeholder="" />
   </div>
-  <div class="control  is-expanded">
+  <div class="control is-expanded">
     <form action="/searching/" method="POST">
       {% csrf_token %}
-      <button class="button is-info">Search</button>
-      <select name="selector">
-        <option value="store">Search Stores</option>
-        <option value="drinks">Search Drinks</option>
-      </select>
+      <button class="button is-info">
+        <i class="fas fa-search fa-2x"></i>
+      </button>
     </form>
   </div>
 </div>
+<!-- end of search bar -->
 
-<div class="content" style="text-align: center;">
-  <div class="columns">
-    <h1>Search page</h1>
-
-    <div class="column">
-      <a href="{% url 'top_shops' %}"
-        ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Top
-        Rated shops</a
-      >
+<!-- start of main content -->
+<!-- start of first row -->
+<div class="columns" style="text-align: center;">
+  <div class="column">
+    <div class="columns is-mobile">
+      <div class="column">
+        <a style="color: black;" href="{% url 'top_shops' %}"
+          ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Top
+          Rated shops</a
+        >
+      </div>
+      <div class="column">
+        <a style="color: black;" href="{% url 'top_drinks' %}"
+          ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Top
+          Rated Drinks</a
+        >
+      </div>
     </div>
-
-    <a href="{% url 'top_drinks' %}"
-      ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Top Rated
-      Drinks</a
-    >
-
-    <a href="{% url 'type_cof' %}"
-      ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Coffee</a
-    >
-    <br />
-    <a href="{% url 'type_ice' %}"
-      ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Iced
-      Coffee</a
-    >
-
-    <a href="{% url 'type_esp' %}"
-      ><img
-        src="https://i.imgur.com/O0AzIj0.jpg"
-        alt="Coffee"
-      /><br />Espresso</a
-    >
-
-    <a href="{% url 'type_cap' %}"
-      ><img
-        src="https://i.imgur.com/O0AzIj0.jpg"
-        alt="Coffee"
-      /><br />Cappucino</a>
-    <br />
   </div>
 </div>
+<!-- end of first row -->
+
+<!-- start of second row -->
+<div class="columns" style="text-align: center;">
+  <div class="column">
+    <div class="columns is-mobile">
+      <div class="column">
+        <a style="color: black;" href="{% url 'type_cof' %}"
+          ><img
+            src="https://i.imgur.com/O0AzIj0.jpg"
+            alt="Coffee"
+          /><br />Coffee</a
+        >
+      </div>
+      <div class="column">
+        <a style="color: black;" href="{% url 'type_ice' %}"
+          ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Iced
+          Coffee</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end of second row -->
+
+<!-- start of third row -->
+<div class="columns" style="text-align: center;">
+  <div class="column">
+    <div class="columns is-mobile">
+      <div class="column">
+        <a style="color: black;" href="{% url 'type_esp' %}"
+          ><img
+            src="https://i.imgur.com/O0AzIj0.jpg"
+            alt="Coffee"
+          /><br />Espresso</a
+        >
+      </div>
+      <div class="column">
+        <a style="color: black;" href="{% url 'type_cap' %}"
+          ><img
+            src="https://i.imgur.com/O0AzIj0.jpg"
+            alt="Coffee"
+          /><br />Cappucino</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of third row -->
 {% endblock %}
