@@ -33,10 +33,10 @@ Add new drinks to the database for fellow users to discover
 
 
 # the tech in the project is -
-
-Django
-Python
-
+<ul>
+<li>Django
+<li>Python
+</ul>
 goals of the project
 
 
