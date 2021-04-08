@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} <<<<<<< HEAD
 
 <h1 class="title is-1" style="text-align: center;">Discover</h1>
 
@@ -10,6 +10,10 @@
     <form action="/searching/" method="POST">
       {% csrf_token %}
       <button class="button is-info">Search</button>
+      <select name="selector">
+        <option value="store">Search Stores</option>
+        <option value="drinks">Search Drinks</option>
+      </select>
     </form>
   </div>
 </div>
@@ -60,5 +64,3 @@
     <br />
   </div>
 </div>
-
-{% endblock %}

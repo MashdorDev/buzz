@@ -4,8 +4,9 @@
 <h1>Add Coffee</h1>
 {% endif %}
 
-<form action="{% url 'coffee_create' %}" enctype="multipart/form-data" method="POST">
+<form action="/coffee/create/{{store.id}}/" enctype="multipart/form-data" method="POST">
   {% csrf_token %}
+  <h1> Add a drink to {{store.name}}</h1>
   <label>name: <input name="name" ></label>
   <br>
   <label>Type: <select name="categories">
@@ -16,8 +17,6 @@
   </select></label>
   <br>
   <label>description:</label> <textarea name="description"></textarea>
-  <br>
-  <label>Store: <input name="store"></label>
   <br>
   <label>Photo: <input type="file" name="photo-file"></label>
   <br>

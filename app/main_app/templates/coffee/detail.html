@@ -1,26 +1,25 @@
-<h1 class="title">Coffee Details</h1>
+{% extends 'base.html' %} {% block content %}
 
-<a href="/">Go back home</a>
+<h1 class="title">Coffee Details</h1>
 
 <div class="card" style="text-align: center;">
   <div class="card-content">
     <span class="title is-3 is-spaced"></span>
     <div class="subtitle">
-      <img src="{{coffee.0.photo}}" alt="Photo of the coffee">
+      <img src="{{coffee.photo}}" alt="Photo of the coffee">
       <h1>Name: {{coffee.name}}</h1>
-      <h2>type : {{coffee.categories}}</h2>
-      <h3>type : {{coffee.store_id}}</h3>
-      <h4>description : {{coffee.description}}</h4>
-
-      <h3></h3>
+      <h2>type: {{coffee.categories}}</h2>
+      <h3>Store: {{store.name}}</h3>
+      <h3>rating: {{coffee.rating}}</h3>
+      <h4>description: {{coffee.description}}</h4>
+      <a href="/addreview/{{coffee.id}}/">Add a review</a>
     </div>
-    <hr />
-    <p></p>
-  </div>
-  <div class="subtitle">
-
-      <a href="#">Edit</a>
-
-      <a href="">Delete</a>
   </div>
 </div>
+
+{%for i in reviews%}
+<h1>{{i.profile.user.username}}</h1>
+<h1>{{i.review}}</h1>
+
+{% endfor %}
+{% endblock %}

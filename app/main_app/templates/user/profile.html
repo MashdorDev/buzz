@@ -4,9 +4,11 @@
 
 {% if user.is_authenticated %}
     <a>Your Reviews</a>
-    <a>Add a Drink</a>
+    <br>
     <a>Submitted Drinks</a>
+    <br>
     <a href="{% url 'logout' %}">Log Out</a>
+    <br>
 
     {% if user.is_staff %}
             <a href="{% url 'admin_approval' %}">Admin approval</a>
