@@ -1,5 +1,15 @@
 # Buzz☕
 
+<p align="center">
+  <a href="https://github.com/Ckrcok/buzz">
+    <img
+      alt="Buzz Logo"
+      src="https://i.imgur.com/qDVb7E0.png"
+      width="400"
+    />
+  </a>
+</p>
+
 ### The app that fuels your day
 
 # About Buzz
