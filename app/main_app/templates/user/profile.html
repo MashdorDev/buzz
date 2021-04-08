@@ -6,9 +6,9 @@
     <img src="{{using.avatar}}" alt="Photo of the coffee">
     <a href="{% url 'profile_avatar' %}">Avatar</a>
     <br>
-    <a>Your Reviews</a>
+    <a href="{% url 'profile_review' %}">Your Reviews</a>
     <br>
-    <a>Submitted Drinks</a>
+    <a href="{% url 'profile_submissions' %}">Submitted Drinks</a>
     <br>
     <a href="{% url 'logout' %}">Log Out</a>
     <br>

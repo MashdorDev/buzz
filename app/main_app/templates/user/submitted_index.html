@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Submissions</h1>
+{% for u in mine_user %}
+<div>
+    <h1>{{u.name}}</h1>
+    <h1>pending approval</h1>
+</div>
+{% endfor %} 
+{% for a in mine_admin %} 
+<div>
+    <h1>{{a.name}}</h1>
+    <h1>approved</h1>
+</div>
+
+{% endfor %}
+{% endblock %}
