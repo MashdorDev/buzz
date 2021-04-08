@@ -1,21 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Buzz Stuff</title>
-  </head>
-  <body>
-        <h1>Log In</h1>
+{% extends 'base.html' %} {% block content %}
+<div class="columns is-desktop">
+  <div
+    class=" column is-three-fifths is-offset-one-fifth"
+    style="
+    text-align: center;
+"
+  >
+    <h1 style="margin-top: 10vh;" class="title">
+      Log In
+    </h1>
+  </div>
 
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" class="btn" value="login">
-            <input type="hidden" name="next" value="{{ next }}">
-        </form>
-        <br />
-        <a href="{% url 'signup' %}">Sign Up</a>
-    </body>
-</html>
+  <div
+    class="column is-three-fifths
+is-offset-one-fifth"
+    style="
+    text-align: center;
+"
+  >
+    <div class="form">
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="container">{{ form.as_p }}</div>
+
+        <input
+          style=" margin-top: 10vh; "
+          class=" button is-medium"
+          type="submit"
+          class="btn"
+          value="login"
+        />
+
+        <input class="input" type="hidden" name="next" value="{{ next }}" />
+      </form>
+      <br />
+      <hr />
+      <div class="subtitle is-4">Don't have a user?</div>
+      <a class="button" href="{% url 'signup' %}">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
