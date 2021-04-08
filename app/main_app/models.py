@@ -18,7 +18,6 @@ class Profile(models.Model):
 # many to one for users 
 class Admin_Coffee(models.Model):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
     store_id = models.CharField('Store name',max_length=50)
     categories = models.CharField('Categories', max_length=(2), choices=(CATEGORIES), default=CATEGORIES[0][0])
     photo = models.CharField(max_length=200)
@@ -33,7 +32,6 @@ class Admin_Coffee(models.Model):
 # many to one for users
 class User_Coffee(models.Model):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
     store_id = models.CharField('Store name',max_length=50)
     categories = models.CharField('Categories', max_length=(2), choices=(CATEGORIES), default=CATEGORIES[0][0])
     photo = models.CharField(max_length=200)
