@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<img src="{{using.avatar}}" alt="Photo of the coffee">
+
+<form action="/profile/avatar/" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <label><input type="file" name="photo-file"></label>
+    <button>change picture</button>
+</form>
+
+{% endblock %}
