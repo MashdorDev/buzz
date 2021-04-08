@@ -10,6 +10,11 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
     />
     <title>Buzz Stuff</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="main-content" style=" text-align: center;">
@@ -22,27 +27,22 @@
       {% else %}
       <div
         class="column is-half is-offset-one-quarter"
-        style=" margin-top: 20vh;"
+        style="left: auto;right: auto;margin-top: 70vh;"
       >
         <h1 class="title" style="text-align: center;margin-top: 10vh;">
-          Welcome to Buz!
+          Welcome to Buzz!
         </h1>
       </div>
       {% endif %} {% if user.is_authenticated %}
       <a
-        style="margin-top: 20vh;"
+        style="left: auto;right: auto; margin-top: 70vh;"
         class="column is-half is-offset-one-quarter"
         href="{% url 'search' %}"
         >Start Sippin</a
       >
       {% else %}
       <div class="column is-half is-offset-one-quarter">
-        <a
-          style="left: 35vw;right: 25vw;top: 50vh;"
-          class="button"
-          href="{% url 'login' %}"
-          >Start Sippin</a
-        >
+        <a class="button" href="{% url 'login' %}">Start Sippin</a>
       </div>
     </div>
 

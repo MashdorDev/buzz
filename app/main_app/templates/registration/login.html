@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% block content %}
 <div class="columns is-desktop">
   <div
     class=" column is-three-fifths is-offset-one-fifth"
@@ -6,17 +6,20 @@
     text-align: center;
 "
   >
-    <h1 style="margin-top: 10vh;" class="title">
-      Log In
-    </h1>
+    <img
+      src="https://i.imgur.com/WgzL52g.png"
+      alt="Buzz Logo"
+      style="
+    width: 25vh;
+    margin-top: 10vh;
+"
+    />
   </div>
 
   <div
     class="column is-three-fifths
 is-offset-one-fifth"
-    style="
-    text-align: center;
-"
+    style="text-align: center; margin-top: 10vh;"
   >
     <div class="form">
       <form method="post" action="{% url 'login' %}">
