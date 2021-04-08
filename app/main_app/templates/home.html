@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" style="height: 100vh; width: 100vw; background-image: url(https://images.squarespace-cdn.com/content/5e3871e9af82b1152596207e/1583939978332-COQLH4ISC7TCD9HWIRHV/image-asset.jpeg?format=1500w&content-type=image%2Fjpeg);background-size: cover;background-repeat: no-repeat;" >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,36 +16,46 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="main-content" style=" text-align: center;">
-      <div class="is-half is-offset-one-quarter">
+  <body
+    style=""
+  >
+    <img src="https://i.imgur.com/WgzL52g.png" alt="buzz logo" />
+    <div class="main-content" style="text-align: center;">
+      <div >
+        <!-- user is logged -->
         {% if user.is_authenticated %}
-        <h1 class="title" style="text-align: center;margin-top: 10vh;">
+        <!-- <h1 class="title" style="text-align: center;margin-top: 10vh;">
           Welcome Back to Buzz!
         </h1>
-      </div>
+      </div> -->
+
+      <!-- user isn't logged -->
       {% else %}
-      <div
-        class="column is-half is-offset-one-quarter"
-        style="left: auto;right: auto;margin-top: 70vh;"
-      >
-        <h1 class="title" style="text-align: center;margin-top: 10vh;">
+
+        <!-- <h1 class="title" style="text-align: center;margin-top: 10vh;">
           Welcome to Buzz!
         </h1>
-      </div>
-      {% endif %} {% if user.is_authenticated %}
+      </div> -->
+      {% endif %}
+
+      <!-- user logged -->
+      {% if user.is_authenticated %}
       <a
-        style="left: auto;right: auto; margin-top: 70vh;"
-        class="column is-half is-offset-one-quarter"
+        style="left: auto;right: auto; margin-top: 55vh;"
+        class="button is-dark"
         href="{% url 'search' %}"
         >Start Sippin</a
       >
+      <!-- user isn't logged -->
       {% else %}
-      <div class="column is-half is-offset-one-quarter">
-        <a class="button" href="{% url 'login' %}">Start Sippin</a>
-      </div>
-    </div>
+      <a
+        style="left: auto;right: auto; margin-top: 55vh;"
+        class="button is-dark"
+        href="{% url 'login' %}"
+        >Start Sippin</a>
+
 
     {% endif %}
+
   </body>
 </html>
