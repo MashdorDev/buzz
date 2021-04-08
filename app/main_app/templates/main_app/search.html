@@ -3,6 +3,10 @@
     {% csrf_token %}
     <input name="search">
     <button>Search</button>
+    <select name="selector">
+        <option value="store">Search Stores</option>
+        <option value="drinks">Search Drinks</option>
+    </select>
 </form>
 
 
@@ -21,10 +25,5 @@
 
 
 
-<h3>link dump(temporary)</h3>
-<a href="{% url 'coffee_index' %}">coffee page</a>
-<br />
-<a href="{% url 'coffee_create' %}">Add a new coffee</a>
-<br>
 
 {% endblock %}

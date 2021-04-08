@@ -7,14 +7,14 @@ from . import views
 urlpatterns = [
     path('', views.home, name = 'home'),
     path('accounts/signup/', views.signup, name= 'signup'),
-    path('coffee/', views.coffee_index, name='coffee_index'),
-    path('store/', views.store_index, name='store_index'),
-    path('coffee/detail/<int:coff_id>', views.coffee_detail, name='coffee_detail'),
-    path('coffee/create/', views.coffee_create, name='coffee_create'),
+    path('store/<str:store_id>/', views.store_details, name='store_details'),
+    path('coffee/detail/<int:coff_id>/', views.coffee_detail, name='coffee_detail'),
+    path('coffee/create/<str:store_id>/', views.coffee_create, name='coffee_create'),
+    path('addreview/<int:coff_id>/', views.create_review, name='review_create'),
     path('profile/', views.profile, name='profile'),
     path('search/', views.search, name='search'),
     path('searching/', views.searching, name='searching'),
-    path('profile/favorites', views.index_favorites, name='favorites'),
+    path('profile/favorites/', views.index_favorites, name='favorites'),
     path('topdrinks/', views.index_top_drinks, name='top_drinks'),
     path('topshops/', views.index_top_shops, name='top_shops'),
     path('type/cof', views.index_type_cof, name='type_cof'),
@@ -23,4 +23,5 @@ urlpatterns = [
     path('type/cap', views.index_type_cap, name='type_cap'),
     path('approval/admin', views.admin_approval, name='admin_approval'),
     path('approved/<int:cof_id>', views.approved, name='approved'),
+    path('delete/admin/<int:cof_id>', views.delete_ad, name='delete_ad')
 ]

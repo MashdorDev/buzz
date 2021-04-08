@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Admin Approval</h1>
+<h1>{{length}} reviews left</h1>
 
+{% if length > 0%}
 <form action="{% url 'approved' coffee.0.id %}" enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     <label>name: <input name="name" value="{{coffee.0.name}}"></label>
@@ -8,7 +10,7 @@
     <p>Coffee, Iced Coffee, Espresso, Cappucino</p>
     <label>Type: <input name="categories" value="{{coffee.0.categories}}"></label>
     <br>
-    <label>description:</label> <textarea name="description" value="{{coffee.0.description}}"></textarea>
+    <label>description:</label> <textarea name="description"> {{coffee.0.description}} </textarea>
     <br>
     <label>Store: <input name="store" value = "{{coffee.0.store_id}}"></label>
     <br>
@@ -16,6 +18,10 @@
     <br>
     <label>User Profile <input name="profile" value = "{{coffee.0.profile}}"></label>
     <button>Approve</button>
+<form action="{% url 'delete_ad' coffee.0.id %}" method="POST">
+    <button>Delete</button>
 </form>
-
+{% else %}
+<h1>There are currently no coffees pending for review</h1>
+{%endif%}
 {% endblock %}

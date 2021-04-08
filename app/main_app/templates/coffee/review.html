@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Add review for {{coffee.name}}</h1>
+
+<form method="POST" action="/addreview/{{coffee.id}}/">
+  {% csrf_token %}
+  <label>Enter a rating 0 to 5</label><input type="number" name="rating" min="0" max="5">
+  <br>
+  <label>Review</label><textarea name="review"></textarea>
+  <br>
+  <button>Submit Review</button>
+</form>
+
+{% endblock %}
