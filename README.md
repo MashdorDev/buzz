@@ -37,7 +37,7 @@ Add new drinks to the database for fellow users to discover
 <li>Django
 <li>Python
 </ul>
-goals of the project
+
 
 
 # ERD 
