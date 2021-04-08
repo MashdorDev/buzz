@@ -1,4 +1,4 @@
-# Buzz
+# Buzz☕
 
 ### The app that fuels your day
 
