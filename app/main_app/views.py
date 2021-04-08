@@ -103,7 +103,6 @@ def coffee_create(request, store_id):
     if request.method == 'POST':
         User_Coffee.objects.create(
             name = request.POST['name'],
-            description = request.POST['description'],
             store_id = store_id,
             categories = request.POST['categories'],
             photo = add_photo(request.FILES.get('photo-file', None)),
@@ -128,9 +127,16 @@ def searching(request):
 
 # view favorites
 def index_favorites(request):
-    profile = Profile.objects.get(user_id=request.user.id)
-    coffee = Admin_Coffee.objects.get(favorites)
+    coffee = Admin_Coffee.objects.filter(favorites__id=Profile.objects.get(user_id=request.user.id).id)
     return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
+
+# add to favorites
+def add_favorite(request, coff_id):
+    print('hello')
+    coffee= Admin_Coffee.objects.get(id=coff_id)
+    coffee.favorites.add(Profile.objects.get(user_id=request.user.id))
+    coffee.save()
+    return redirect('/coffee/detail/%s/' % (coff_id))
 
 # top coffee
 def index_top_drinks(request):
@@ -177,6 +183,17 @@ def create_avatar(request):
     else:
         return render(request, 'user/avatar.html', {'using': using})
 
+# view my reviews
+def index_review(request):
+    mine = Reviews.objects.filter(profile_id=Profile.objects.get(user_id=request.user.id))
+    return render(request, 'user/review_index.html', {'mine': mine})
+
+# view my submissions
+def index_submissions(request):
+    mine_user = User_Coffee.objects.filter(profile_id=Profile.objects.get(user_id=request.user.id))
+    mine_admin = Admin_Coffee.objects.filter(profile_id=Profile.objects.get(user_id=request.user.id))
+    return render(request, 'user/submitted_index.html', {'mine_user': mine_user, 'mine_admin': mine_admin})
+
 # adming coffee approval
 def admin_approval(request):
     coffee = User_Coffee.objects.all()
@@ -188,7 +205,6 @@ def approved(request, cof_id):
     c = User_Coffee.objects.get(id=cof_id)
     Admin_Coffee.objects.create(
         name = request.POST['name'],
-        description = request.POST['description'],
         store_id = request.POST['store'],
         categories = request.POST['categories'],
         photo = request.POST['photo-file'],
