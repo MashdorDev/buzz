@@ -3,6 +3,9 @@
 <h1>User name</h1>
 
 {% if user.is_authenticated %}
+    <img src="{{using.avatar}}" alt="Photo of the coffee">
+    <a href="{% url 'profile_avatar' %}">Avatar</a>
+    <br>
     <a>Your Reviews</a>
     <br>
     <a>Submitted Drinks</a>
