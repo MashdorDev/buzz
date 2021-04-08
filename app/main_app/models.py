@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 CATEGORIES = (
-    ('C', 'Coffee'),
+    ('CE', 'Coffee'),
     ('IC', 'Iced Coffee'),
     ('E', 'Espresso'),
-    ('C', 'Cappucino'),
+    ('CA', 'Cappucino'),
 )
 
 class Profile(models.Model):
