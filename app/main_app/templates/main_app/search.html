@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %} <<<<<<< HEAD
+{% extends 'base.html' %} {% block content %}
 
 <h1 class="title is-1" style="text-align: center;">Discover</h1>
 
@@ -18,49 +18,80 @@
   </div>
 </div>
 
-<div class="content" style="text-align: center;">
-  <div class="columns">
-    <h1>Search page</h1>
-
-    <div class="column">
-      <a href="{% url 'top_shops' %}"
-        ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Top
-        Rated shops</a
-      >
+<div class="columns">
+  <div class="column">
+    <h1 class="bd-notification is-info">Search page</h1>
+    <div class="columns is-mobile">
+      <div class="column">
+        <a href="{% url 'top_shops' %}"
+          ><img
+            src="https://i.imgur.com/O0AzIj0.jpg"
+            alt="Coffee"
+            style="width: 45vw;"
+          /><br />Top Rated shops</a
+        >
+      </div>
+      <div class="column">
+        <a href="{% url 'top_drinks' %}"
+          ><img
+            src="https://i.imgur.com/O0AzIj0.jpg"
+            alt="Coffee"
+            style="width: 45vw;margin-left: 2vw;"
+          /><br />Top Rated Drinks</a
+        >
+      </div>
     </div>
-
-    <a href="{% url 'top_drinks' %}"
-      ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Top Rated
-      Drinks</a
-    >
-
-    <a href="{% url 'type_cof' %}"
-      ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Coffee</a
-    >
-    <br />
-    <a href="{% url 'type_ice' %}"
-      ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Iced
-      Coffee</a
-    >
-
-    <a href="{% url 'type_esp' %}"
-      ><img
-        src="https://i.imgur.com/O0AzIj0.jpg"
-        alt="Coffee"
-      /><br />Espresso</a
-    >
-
-    <a href="{% url 'type_cap' %}"
-      ><img
-        src="https://i.imgur.com/O0AzIj0.jpg"
-        alt="Coffee"
-      /><br />Cappucino</a
-    >
-
-    <h3>link dump(temporary)</h3>
-    <a href="{% url 'coffee_index' %}">coffee page</a>
-    <br />
-    <a href="{% url 'coffee_create' %}">Add a new coffee</a>
-    <br />
   </div>
+
+  <!-- <div class="content" style="text-align: center;">
+    <div class="columns">
+      <h1>Search page</h1>
+
+      <div class="column is-half">
+        <a href="{% url 'top_shops' %}"><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Top
+          Rated shops</a
+        >
+      </div>
+      <div class="column is-half">
+        <a href="{% url 'top_drinks' %}"
+          ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Top
+          Rated Drinks</a
+        >
+      </div>
+      <div class="">
+        <a href="{% url 'type_cof' %}"
+          ><img
+            src="https://i.imgur.com/O0AzIj0.jpg"
+            alt="Coffee"
+          /><br />Coffee</a
+        >
+      </div>
+
+      <br />
+      <a href="{% url 'type_ice' %}"
+        ><img src="https://i.imgur.com/O0AzIj0.jpg" alt="Coffee" /><br />Iced
+        Coffee</a
+      >
+
+      <a href="{% url 'type_esp' %}"
+        ><img
+          src="https://i.imgur.com/O0AzIj0.jpg"
+          alt="Coffee"
+        /><br />Espresso</a
+      >
+
+      <a href="{% url 'type_cap' %}"
+        ><img
+          src="https://i.imgur.com/O0AzIj0.jpg"
+          alt="Coffee"
+        /><br />Cappucino</a
+      >
+
+      <h3>link dump(temporary)</h3>
+      <br />
+
+      <br />
+    </div>
+  </div> -->
+  {% endblock %}
 </div>
