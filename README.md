@@ -5,7 +5,7 @@
     <img
       alt="Buzz Logo"
       src="https://i.imgur.com/qDVb7E0.png"
-      width="400"
+      width="800"
     />
   </a>
 </p>
