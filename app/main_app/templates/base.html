@@ -20,6 +20,7 @@
 
     <title>Buzz Stuff</title>
   </head>
+<<<<<<< HEAD
   <body lang="en">
     <div class="content" style=" margin-left: 5vw; margin-right: 5vw;">
       {% block content %} {% endblock %}
@@ -49,5 +50,15 @@
       </div>
     </nav>
     <!-- end of NavBar -->
+=======
+  <body>
+    {% block content %} {% endblock %}
+    
+    <br />
+    <h4>Footer</h4>
+    <a href="{% url 'profile' %}" class="test">Profile</a>
+    <a href="{% url 'search' %}">search</a>
+    <a href="{% url 'favorites' %}">Favorites</a>
+>>>>>>> main
   </body>
 </html>

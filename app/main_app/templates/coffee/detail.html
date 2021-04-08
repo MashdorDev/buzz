@@ -7,11 +7,14 @@
     <span class="title is-3 is-spaced"></span>
     <div class="subtitle">
       <img src="{{coffee.photo}}" alt="Photo of the coffee">
+      <form method="POST" action= '/addfavorite/{{coffee.id}}/'>
+        {% csrf_token %}
+        <button>Favorite</button>
+      </form>
       <h1>Name: {{coffee.name}}</h1>
       <h2>type: {{coffee.categories}}</h2>
       <h3>Store: {{store.name}}</h3>
       <h3>rating: {{coffee.rating}}</h3>
-      <h4>description: {{coffee.description}}</h4>
       <a href="/addreview/{{coffee.id}}/">Add a review</a>
     </div>
   </div>
