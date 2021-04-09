@@ -63,6 +63,7 @@ Add new drinks to the database for fellow users to discover
 
 <h1 align="center">
   DEV Team
+  <br>
   <a href="https://github.com/Ckrcok">
     Dor
   </a>
@@ -70,15 +71,19 @@ Add new drinks to the database for fellow users to discover
    <a href="https://github.com/Raymond2200">
       Raymond
   </a>
+  <br>
   Design Team
+  <br>
     <a href="https://www.linkedin.com/in/justine-moore-5a0ba559/">
       Justine Moore
   </a>
+  <br>
      <a href="https://www.linkedin.com/in/tianshi/">
       Tian Shi
   </a>
-
+<br>
   <a href="https://www.linkedin.com/in/andrew-jankowski-3319a4180/">
       Andrew Jankowski
   </a>
+  <br>
 </h1>
