@@ -9,6 +9,7 @@
 
 <!-- start of search bar -->
 
+<form action="/searching/" method="POST">
 <div class="field has-addons">
   <select class="dropdown-content" name="selector">
     <option class="dropdown-item" value="store">Search Stores</option>
@@ -18,14 +19,13 @@
     <input class="input" type="text" placeholder="" />
   </div>
   <div class="control is-expanded">
-    <form action="/searching/" method="POST">
       {% csrf_token %}
       <button class="button is-black">
         <i class="fas fa-search fa-2x"></i>
       </button>
-    </form>
+    </div>
   </div>
-</div>
+</form>
 <!-- end of search bar -->
 
 <!-- start of main content -->
