@@ -1,9 +1,52 @@
 {% extends 'base.html' %} {% block content %}
 
-{% for c in coffee  %}
+<h1
+  class="title is-1"
+  style="
+    text-align: center;
+    margin-bottom: 2vh;
+    margin-top: 2vh;"
+>
+  {{title}}
+</h1>
 
+{% for c in coffee %}
 
-<a href="{% url 'coffee_detail' c.id %}">{{c.name}}</a>
-<br>
-{% endfor %}
-{% endblock %}
+<br />
+<a href="{% url 'coffee_detail' c.id  %}">
+  <div class="card">
+    <div
+      class="columns is-multiline is-mobile"
+      style="display: flex;
+           justify-content: center;
+           align-items: center;"
+    >
+      <div
+        class="column is-5"
+        style="display: flex;
+           justify-content: center;
+           align-items: center;"
+      >
+        <img
+          src="{{c.photo}}"
+          alt="Store Picture"
+          style=" width:30vw;
+                  height:18vh;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;"
+        />
+      </div>
+      <div class="column">
+        <div class="bd-notification is-primary">
+          <h3>{{c.name}}</h3>
+          <h4>rating : {{c.rating}}</h4>
+
+          <h4>Reviews : {{c.review_count}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+<br />
+{% endfor %} {% endblock %}
