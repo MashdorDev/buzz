@@ -75,7 +75,7 @@ def coffee_detail(request, coff_id):
 # Store detail page
 def store_details(request, sto_id):
     r = requests.get("https://api.yelp.com/v3/businesses/"+ sto_id, headers=headers).json()
-    coffee = Reviews.objects.filter(store_id=store_id)
+    coffee = Admin_Coffee.objects.filter(store_id=sto_id)
     return render(request, 'coffee/store_index.html', {"store": r, 'coffee':coffee})
 
 # create coffee form
