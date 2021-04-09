@@ -6,11 +6,10 @@
     margin-top: 10vh;
 "
 >
-  <h1>User name</h1>
 
   {% if user.is_authenticated %}
   <a href="{% url 'profile_avatar' %}"
-    ><img src="https://i.imgur.com/ViFTKtP.jpg" alt="Photo of the coffee"
+    ><img src="{{using.avatar}}" alt="Photo of the coffee"
   /></a>
   <br />
   <a
@@ -19,8 +18,7 @@
     style="
     margin-top: 2vh;
 "
-    >Your Reviews</a
-  >
+    >My Reviews</a>
   <br />
   <a
     class="button is-primary is-outlined"
