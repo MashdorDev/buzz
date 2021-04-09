@@ -73,17 +73,18 @@ def coffee_detail(request, coff_id):
     return render(request, "coffee/detail.html", {'coffee': coffee, 'store': store, 'reviews': rev})
 
 # Store detail page
-def store_details(request, store_id):
-    r = requests.get("https://api.yelp.com/v3/businesses/"+ store_id, headers=headers).json()
-    return render(request, 'coffee/store_index.html', {"store": r})
+def store_details(request, sto_id):
+    r = requests.get("https://api.yelp.com/v3/businesses/"+ sto_id, headers=headers).json()
+    coffee = Reviews.objects.filter(store_id=store_id)
+    return render(request, 'coffee/store_index.html', {"store": r, 'coffee':coffee})
 
 # create coffee form
-def coffee_create(request, store_id):
-    r = requests.get("https://api.yelp.com/v3/businesses/"+ store_id, headers=headers).json()
+def coffee_create(request, sto_id):
+    r = requests.get("https://api.yelp.com/v3/businesses/"+ sto_id, headers=headers).json()
     if request.method == 'POST':
         User_Coffee.objects.create(
             name = request.POST['name'],
-            store_id = store_id,
+            store_id = sto_id,
             categories = request.POST['categories'],
             photo = add_photo(request.FILES.get('photo-file', None)),
             profile = Profile.objects.get(user_id=request.user.id)
