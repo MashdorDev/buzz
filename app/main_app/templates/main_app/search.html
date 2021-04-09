@@ -10,15 +10,15 @@
 <!-- start of search bar -->
 
 <form action="/searching/" method="POST">
-<div class="field has-addons">
-  <select class="dropdown-content" name="selector">
-    <option class="dropdown-item" value="store">Search Stores</option>
-    <option class="dropdown-item" value="drinks">Search Drinks</option>
-  </select>
-  <div class="control is-expanded">
-    <input class="input" type="text" name ='search' placeholder="" />
-  </div>
-  <div class="control is-expanded">
+  <div class="field has-addons" style="margin-bottom: 5vh;">
+    <select class="dropdown-content" name="selector">
+      <option class="dropdown-item" value="store">Search Stores</option>
+      <option class="dropdown-item" value="drinks">Search Drinks</option>
+    </select>
+    <div class="control is-expanded">
+      <input class="input" type="text" name="search" placeholder="" />
+    </div>
+    <div class="control is-expanded">
       {% csrf_token %}
       <button class="button is-black">
         <i class="fas fa-search fa-2x"></i>
