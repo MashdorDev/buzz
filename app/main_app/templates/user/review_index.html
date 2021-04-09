@@ -5,6 +5,10 @@
 {% for i in mine%} 
 <div>
     <h1>{{i.review}}</h1>
+    <form action="{% url 'delete_review' i.id %}" method="POST">
+        {% csrf_token %}
+        <button>Delete</button>
+    </form>
 </div>
 {% endfor %}
 {% endblock %}
