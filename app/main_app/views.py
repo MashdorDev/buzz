@@ -38,6 +38,9 @@ headers = {'Authorization': f'Bearer {API} '}
 def home(request):
     return render(request, 'home.html')
 
+def about_view(request):
+    return render(request, 'aboutus.html')
+
 
 # sign up function
 def signup(request):
