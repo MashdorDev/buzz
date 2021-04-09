@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE, default=0)
     avatar = models.CharField(max_length=200)
