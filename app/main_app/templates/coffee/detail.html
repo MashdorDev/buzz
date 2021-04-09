@@ -1,13 +1,15 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1 class="title">Coffee Details</h1>
-
 <div class="card" style="text-align: center;">
-  <div class="card-content">
+  <div
+    class="card-content"
+    style="margin-top: 2vh;
+          margin-bottom: 0px;"
+  >
     <span class="title is-3 is-spaced"></span>
     <div class="subtitle">
-      <img src="{{coffee.photo}}" alt="Photo of the coffee">
-      <form method="POST" action= '/addfavorite/{{coffee.id}}/'>
+      <img src="{{coffee.photo}}" alt="Photo of the coffee" />
+      <form method="POST" action="/addfavorite/{{coffee.id}}/">
         {% csrf_token %}
         <button>Favorite</button>
       </form>
@@ -24,5 +26,4 @@
 <h1>{{i.profile.user.username}}</h1>
 <h1>{{i.review}}</h1>
 
-{% endfor %}
-{% endblock %}
+{% endfor %} {% endblock %}
