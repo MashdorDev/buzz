@@ -1,12 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>store index</h1>
+<div class="card">
+  <h1>store index</h1>
 
-<img src="{{store.image_url}}" alt="">
+  <img src="{{store.image_url}}" alt="" />
 
-<h1>{{store.name}}</h1>
+  <h1>{{store.name}}</h1>
 
-<a href="/coffee/create/{{store.id}}/">Add a new coffee</a>
-
+  <a href="/coffee/create/{{store.id}}/">Add a new coffee</a>
+</div>
 
 {% endblock %}

@@ -1,24 +1,37 @@
-{% extends 'base.html' %} {% block content %} {% if object %}
-<h1>Edit {{object.name}}</h1>
-{% else %}
-<h1>Add Coffee</h1>
-{% endif %}
+{% extends 'base.html' %} {% block content %}
+<div
+  class="content"
+  style="margin-left: 5vw;margin-right: 5vw;text-align: center;margin-top: 10vh;margin-bottom: 0px;"
+>
+  <h1 class="title is-2">Add Coffee</h1>
 
-<form action="/coffee/create/{{store.id}}/" enctype="multipart/form-data" method="POST">
-  {% csrf_token %}
-  <h1> Add a drink to {{store.name}}</h1>
-  <label>name: <input name="name" required></label>
-  <br>
-  <label>Type: <select name="categories" required>
-    <option value="Coffee">Coffee</option>
-    <option value="Iced-Coffee">Iced Coffee</option>
-    <option value="Espresso">Espresso</option>
-    <option value="Cappucino">Cappucino</option>
-  </select></label>
-  <br>
-  <br>
-  <label>Photo: <input type="file" name="photo-file" required></label>
-  <br>
-  <button>Submit</button>
-</form>
+  <form
+    action="/coffee/create/{{store.id}}/"
+    enctype="multipart/form-data"
+    method="POST"
+  >
+    {% csrf_token %}
+    <h1 class="subtitle is-4">Add a drink to {{store.name}}</h1>
+    <div>Name <br /><input name="name" required /></div>
+    <br />
+    <div>
+      Catagorie<br />
+      <select name="categories" required>
+        <option value="Coffee">Coffee</option>
+        <option value="Iced-Coffee">Iced Coffee</option>
+        <option value="Espresso">Espresso</option>
+        <option value="Cappucino">Cappucino</option>
+      </select>
+    </div>
+    <br />
+    <br />
+    Photo<br />
+    <div>
+      <input class="button is-black" type="file" name="photo-file" required />
+    </div>
+    <br />
+    <button class="button is-black">Submit</button>
+  </form>
+</div>
+
 {% endblock %}
