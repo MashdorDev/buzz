@@ -37,6 +37,7 @@ Add new drinks to the database for fellow users to discover
 
 
 # Photo Gallery 
+### App
 [![](https://i.imgur.com/wlFvnhh.png)](#)
 [![](https://i.imgur.com/5S27RTQ.png)](#)
 [![](https://i.imgur.com/xehsYdK.png)](#)
@@ -44,6 +45,8 @@ Add new drinks to the database for fellow users to discover
 [![](https://i.imgur.com/pdGuQt0.png)](#)
 [![](https://i.imgur.com/k4WYReM.png)](#)
 [![](https://i.imgur.com/JvYJcUe.png)](#)
+
+### ERD
 [![](https://i.imgur.com/UTb19kK.png)](#)
 
 <hr>
