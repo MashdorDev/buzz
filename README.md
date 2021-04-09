@@ -58,7 +58,7 @@ Add new drinks to the database for fellow users to discover
 [![](https://i.imgur.com/UTb19kK.png)](#)
 
 <hr>
-Made by 
+# Made by 
 
 
 <h1 align="center">
