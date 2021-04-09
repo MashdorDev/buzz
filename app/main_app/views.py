@@ -34,6 +34,8 @@ API = os.environ['API_KEY']
 headers = {'Authorization': f'Bearer {API} '}
 
 
+
+
 # home page
 def home(request):
     return render(request, 'home.html')
@@ -59,6 +61,10 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+
+
+
 
 # index coffe page
 def coffee_index(request):
@@ -94,6 +100,10 @@ def coffee_create(request, sto_id):
         return render(request, 'coffee/add_coffee.html', {'store': r})
 
 
+
+
+
+
 # search page
 def search(request):
     return render(request, 'main_app/search.html')
@@ -119,12 +129,17 @@ def add_favorite(request, coff_id):
     coffee.save()
     return redirect('/coffee/detail/%s/' % (coff_id))
 
+# remove from favorites
 def delete_favorite(request, coff_id):
     coffee= Admin_Coffee.objects.get(id=coff_id)
     coffee.favorites.remove(Profile.objects.get(user_id=request.user.id))
     coffee.favorite_count = coffee.favorite_count - 1
     coffee.save()
     return redirect('/profile/favorites/')
+
+
+
+
 
 # top coffee
 def index_top_drinks(request):
@@ -155,6 +170,11 @@ def index_type_esp(request):
 def index_type_cap(request):
     coffee = Admin_Coffee.objects.filter(categories="Cappuccino")
     return render(request, 'main_app/coffee_results.html', {"coffee": coffee, 'title': "Cappuccino"})
+
+
+
+
+
 
 # view profile
 def profile(request):
