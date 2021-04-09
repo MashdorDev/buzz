@@ -10,9 +10,9 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name= 'signup'),
     path('about/us/', views.about_view, name='about_us'),
     # details and add pages
-    path('store/<str:store_id>/', views.store_details, name='store_details'),
+    path('store/<str:sto_id>/', views.store_details, name='store_details'),
     path('coffee/detail/<int:coff_id>/', views.coffee_detail, name='coffee_detail'),
-    path('coffee/create/<str:store_id>/', views.coffee_create, name='coffee_create'),
+    path('coffee/create/<str:sto_id>/', views.coffee_create, name='coffee_create'),
     path('addreview/<int:coff_id>/', views.create_review, name='review_create'),
     path('addfavorite/<int:coff_id>/', views.add_favorite, print('test'), name="add_favorite"),
     # search page and cattegories
