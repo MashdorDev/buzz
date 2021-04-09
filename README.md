@@ -33,6 +33,7 @@ Add new drinks to the database for fellow users to discover
 <li>Python
 <li>Bulma
 <li>Yelp API
+<li>HTML CSS
 </ul>
 
 
