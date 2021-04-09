@@ -8,7 +8,3 @@ class Migration(migrations.Migration):
     dependencies = [
         ('main_app', '0008_auto_20210408_1224'),
     ]
-<<<<<<< HEAD
-=======
-    
->>>>>>> main

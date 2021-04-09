@@ -33,5 +33,6 @@ urlpatterns = [
     path('profile/review/', views.index_review, name = 'profile_review'),
     path('profile/submissions/', views.index_submissions, name = 'profile_submissions'),
     path('profile/favorites/', views.index_favorites, name='favorites'),
-    path('profile/reviews/<int:coff_id>/', views.delete_review, name='delete_review')
+    path('profile/reviews/<int:rev_id>/', views.delete_review, name='delete_review'),
+    path('profile/favorite/delete/<int:coff_id>', views.delete_favorite, name='delete_favorite'),
 ]
