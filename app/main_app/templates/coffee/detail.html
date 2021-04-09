@@ -11,7 +11,7 @@
       <img src="{{coffee.photo}}" alt="Photo of the coffee" />
       <form method="POST" action="/addfavorite/{{coffee.id}}/">
         {% csrf_token %}
-        <button>Favorite</button>
+        <button>Like</button>
       </form>
       <h1>Name: {{coffee.name}}</h1>
       <h2>type: {{coffee.categories}}</h2>

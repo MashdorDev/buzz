@@ -41,8 +41,10 @@
         <div class="bd-notification is-primary">
           <h3>{{c.name}}</h3>
           <h4>Rating : {{c.rating}}/5</h4>
-
-          <h4>Likes : {{c.favorite_count}}</h4>
+          <form action="{% url 'delete_favorite' c.id %}" method="POST">
+            {% csrf_token %}
+            <button>Unlike</button>
+        </form>
         </div>
       </div>
     </div>
