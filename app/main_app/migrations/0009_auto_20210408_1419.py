@@ -8,14 +8,4 @@ class Migration(migrations.Migration):
     dependencies = [
         ('main_app', '0008_auto_20210408_1224'),
     ]
-
-    operations = [
-        migrations.RemoveField(
-            model_name='admin_coffee',
-            name='description',
-        ),
-        migrations.RemoveField(
-            model_name='user_coffee',
-            name='description',
-        ),
-    ]
+    

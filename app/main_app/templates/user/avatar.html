@@ -3,7 +3,7 @@
 
 <form action="/profile/avatar/" enctype="multipart/form-data" method="POST">
   {% csrf_token %}
-  <label><input type="file" name="photo-file"/></label>
+  <label><input type="file" name="photo-file" required/></label>
   <button>change picture</button>
 </form>
 
