@@ -29,10 +29,10 @@ Add new drinks to the database for fellow users to discover
 
 # the tech in the project is -
 <ul>
-<li>Django
-<li>Python
-<li>Bulma
-<li>Yelp API
+[x]Django
+[x]Python
+[x]Bulma
+[x]Yelp API
 </ul>
 
 
@@ -60,5 +60,13 @@ Add new drinks to the database for fellow users to discover
 <hr>
 Made by 
 
-@Ckrcok
-@Raymond2200
+
+<p align="center">
+  <a href="https://github.com/Ckrcok">
+    Dor
+  </a>
+
+   <a href="https://github.com/Raymond2200">
+      Raymond
+  </a>
+</p>
