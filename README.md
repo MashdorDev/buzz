@@ -39,16 +39,20 @@ Add new drinks to the database for fellow users to discover
 
 # Photo Gallery 
 ### App
-[![](https://i.imgur.com/wlFvnhh.png)](#)
-[![](https://i.imgur.com/5S27RTQ.png)](#)
-[![](https://i.imgur.com/xehsYdK.png)](#)
-[![](https://i.imgur.com/Z0WOEir.png)](#)
-[![](https://i.imgur.com/pdGuQt0.png)](#)
-[![](https://i.imgur.com/k4WYReM.png)](#)
-[![](https://i.imgur.com/JvYJcUe.png)](#)
-[![](https://i.imgur.com/tEaZKx6.png)](#)
 
-[![](https://i.imgur.com/W5DtzvX.png)](#)
+<p align="center">
+  <a href="https://github.com/Ckrcok/buzz">
+      [![](https://i.imgur.com/wlFvnhh.png)](#)
+      [![](https://i.imgur.com/5S27RTQ.png)](#)
+      [![](https://i.imgur.com/xehsYdK.png)](#)
+      [![](https://i.imgur.com/Z0WOEir.png)](#)
+      [![](https://i.imgur.com/pdGuQt0.png)](#)
+      [![](https://i.imgur.com/k4WYReM.png)](#)
+      [![](https://i.imgur.com/JvYJcUe.png)](#)
+      [![](https://i.imgur.com/tEaZKx6.png)](#)
+      [![](https://i.imgur.com/W5DtzvX.png)](#)
+  </a>
+</p>
 
 
 ### ERD
