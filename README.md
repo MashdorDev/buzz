@@ -61,12 +61,12 @@ Add new drinks to the database for fellow users to discover
 Made by 
 
 
-<p align="center">
+<h1 align="center">
   <a href="https://github.com/Ckrcok">
     Dor
   </a>
-
+<br>
    <a href="https://github.com/Raymond2200">
       Raymond
   </a>
-</p>
+</h1>
