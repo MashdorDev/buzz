@@ -58,5 +58,7 @@ Add new drinks to the database for fellow users to discover
 [![](https://i.imgur.com/UTb19kK.png)](#)
 
 <hr>
+Made by 
 
-that's all for now!
+@Ckrcok
+@Raymond2200
