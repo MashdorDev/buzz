@@ -6,14 +6,14 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE, default=0)
-    avatar = models.CharField(max_length=200)
+    avatar = models.CharField(max_length=200, default='https://i.imgur.com/DXtLJUo.png')
 
 # many to one for users
 class Admin_Coffee(models.Model):
     name = models.CharField(max_length=50)
     store_id = models.CharField('Store name',max_length=50)
     categories = models.CharField('Categories', max_length=(20))
-    photo = models.CharField(max_length=200, default='https://i.imgur.com/DXtLJUo.png')
+    photo = models.CharField(max_length=200)
     rating = models.FloatField(default=0)
     profile = models.ForeignKey(Profile,related_name='usersubad', on_delete=models.CASCADE, default=0)
     favorite_count = models.IntegerField(default=0)
