@@ -3,12 +3,17 @@
 <h1>Your reviews</h1>
 
 {% for i in mine%} 
-<div>
-    <h1>{{i.review}}</h1>
-    <form action="{% url 'delete_review' i.id %}" method="POST">
-        {% csrf_token %}
-        <button>Delete</button>
-    </form>
+<div class="card">
+    <div class="card-content">
+        <p class="title" style="font-size: 25px;">   
+            "{{i.review}}""
+        </p>
+        <form action="{% url 'delete_review' i.id %}" method="POST">
+            {% csrf_token %}
+            <button class="button is-danger">Delete</button>
+        </form>
+    </div>
 </div>
+<br>
 {% endfor %}
 {% endblock %}
