@@ -71,4 +71,4 @@ Add new drinks to the database for fellow users to discover
   </a>
 </h1>
 
-- [ ]
+- [x]
