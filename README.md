@@ -29,10 +29,10 @@ Add new drinks to the database for fellow users to discover
 
 # the tech in the project is -
 <ul>
-[x]Django
-[x]Python
-[x]Bulma
-[x]Yelp API
+-[x]Django
+-[x]Python
+-[x]Bulma
+-[x]Yelp API
 </ul>
 
 
