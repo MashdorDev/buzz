@@ -72,33 +72,10 @@ def coffee_detail(request, coff_id):
     store = requests.get("https://api.yelp.com/v3/businesses/"+ coffee.store_id, headers=headers).json()
     return render(request, "coffee/detail.html", {'coffee': coffee, 'store': store, 'reviews': rev})
 
-# add a review
-def create_review(request, coff_id):
-    coffee = Admin_Coffee.objects.get(id=coff_id)
-    if request.method == 'POST':
-        Reviews.objects.create(
-            review = request.POST['review'],
-            rating = request.POST['rating'],
-            coffee_id = coff_id,
-            profile = Profile.objects.get(user_id=request.user.id)
-        )
-        update = Reviews.objects.filter(coffee_id=coff_id)
-        rate = 0
-        count = 0
-        for i in update:
-            count += 1
-            rate += int(i.rating)
-        coffee.rating = round(rate/count, 1)
-        coffee.save()
-        return redirect('/coffee/detail/%s/' % (coff_id))
-    else:
-        return render(request, 'coffee/review.html', {"coffee": coffee })
-
 # Store detail page
 def store_details(request, store_id):
     r = requests.get("https://api.yelp.com/v3/businesses/"+ store_id, headers=headers).json()
     return render(request, 'coffee/store_index.html', {"store": r})
-
 
 # create coffee form
 def coffee_create(request, store_id):
@@ -191,6 +168,35 @@ def index_review(request):
     mine = Reviews.objects.filter(profile_id=Profile.objects.get(user_id=request.user.id))
     return render(request, 'user/review_index.html', {'mine': mine})
 
+# delete reviews
+def delete_review(request, rev_id):
+    r = Reviews.objects.get(id=rev_id)
+    r.delete()
+    return redirect('/profile/review/')
+
+# add a review
+def create_review(request, coff_id):
+    coffee = Admin_Coffee.objects.get(id=coff_id)
+    if request.method == 'POST':
+        Reviews.objects.create(
+            review = request.POST['review'],
+            rating = request.POST['rating'],
+            coffee_id = coff_id,
+            profile = Profile.objects.get(user_id=request.user.id)
+        )
+        update = Reviews.objects.filter(coffee_id=coff_id)
+        rate = 0
+        count = 0
+        for i in update:
+            count += 1
+            rate += int(i.rating)
+        coffee.rating = round(rate/count, 1)
+        coffee.save()
+        return redirect('/coffee/detail/%s/' % (coff_id))
+    else:
+        return render(request, 'coffee/review.html', {"coffee": coffee })
+
+
 # view my submissions
 def index_submissions(request):
     mine_user = User_Coffee.objects.filter(profile_id=Profile.objects.get(user_id=request.user.id))
@@ -200,7 +206,6 @@ def index_submissions(request):
 # adming coffee approval
 def admin_approval(request):
     coffee = User_Coffee.objects.all()
-    test = coffee[0].name
     return render(request,'user/admin_approval.html', {'coffee':coffee, "length": len(coffee) - 1})
 
 # admin coffee approved

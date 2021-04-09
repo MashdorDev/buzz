@@ -5,19 +5,20 @@
 {% if length > 0%}
 <form action="{% url 'approved' coffee.0.id %}" enctype="multipart/form-data" method="POST">
     {% csrf_token %}
-    <label>name: <input name="name" value="{{coffee.0.name}}"></label>
+    <label>name: <input name="name" value="{{coffee.0.name}}"required ></label>
     <br>
     <p>Coffee, Iced Coffee, Espresso, Cappucino</p>
-    <label>Type: <input name="categories" value="{{coffee.0.categories}}"></label>
+    <label>Type: <input name="categories" value="{{coffee.0.categories}}" required></label>
     <br>
     <br>
-    <label>Store: <input name="store" value = "{{coffee.0.store_id}}"></label>
+    <label>Store: <input name="store" value = "{{coffee.0.store_id}}" required></label>
     <br>
-    <label>Photo <input name="photo-file" value = "{{coffee.0.photo}}"></label>
+    <label>Photo <input name="photo-file" value = "{{coffee.0.photo}}" required ></label>
     <br>
-    <label>User Profile <input name="profile" value = "{{coffee.0.profile}}"></label>
+    <label>User Profile <input name="profile" value = "{{coffee.0.profile}}" required></label>
     <button>Approve</button>
 <form action="{% url 'delete_ad' coffee.0.id %}" method="POST">
+    {% csrf_token %}
     <button>Delete</button>
 </form>
 {% else %}
