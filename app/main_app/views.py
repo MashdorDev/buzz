@@ -75,7 +75,7 @@ def coffee_detail(request, coff_id):
 # Store detail page
 def store_details(request, sto_id):
     r = requests.get("https://api.yelp.com/v3/businesses/"+ sto_id, headers=headers).json()
-    coffee = Reviews.objects.filter(store_id=store_id)
+    coffee = Admin_Coffee.objects.filter(store_id=sto_id)
     return render(request, 'coffee/store_index.html', {"store": r, 'coffee':coffee})
 
 # create coffee form
@@ -129,7 +129,7 @@ def delete_favorite(request, coff_id):
 # top coffee
 def index_top_drinks(request):
     coffee = Admin_Coffee.objects.all().order_by('-rating')
-    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee, 'title':'Top Drinks'})
 
 # top store
 def index_top_shops(request):
@@ -138,23 +138,23 @@ def index_top_shops(request):
 
 # type coffee
 def index_type_cof(request):
-    coffee = Admin_Coffee.objects.filter(categories="C")
-    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
+    coffee = Admin_Coffee.objects.filter(categories="Coffee")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee, 'title': "Coffee"})
 
 # type iced coffee
 def index_type_ice(request):
-    coffee = Admin_Coffee.objects.filter(categories="IC")
-    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
+    coffee = Admin_Coffee.objects.filter(categories="Iced-Coffee")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee, 'title': "Iced-Coffee"})
 
 # type Espresso
 def index_type_esp(request):
-    coffee = Admin_Coffee.objects.filter(categories="E")
-    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
+    coffee = Admin_Coffee.objects.filter(categories="Espresso")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee, 'title': "Espresso"})
 
 # type Cappucino
 def index_type_cap(request):
-    coffee = Admin_Coffee.objects.filter(categories="C")
-    return render(request, 'main_app/coffee_results.html', {"coffee": coffee})
+    coffee = Admin_Coffee.objects.filter(categories="Cappuccino")
+    return render(request, 'main_app/coffee_results.html', {"coffee": coffee, 'title': "Cappuccino"})
 
 # view profile
 def profile(request):

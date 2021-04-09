@@ -4,13 +4,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-CATEGORIES = (
-    ('CE', 'Coffee'),
-    ('IC', 'Iced Coffee'),
-    ('E', 'Espresso'),
-    ('CA', 'Cappucino'),
-)
-
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE, default=0)
     avatar = models.CharField(max_length=200)
@@ -33,7 +26,7 @@ class Admin_Coffee(models.Model):
 class User_Coffee(models.Model):
     name = models.CharField(max_length=50)
     store_id = models.CharField('Store name',max_length=50)
-    categories = models.CharField('Categories', max_length=(2), choices=(CATEGORIES), default=CATEGORIES[0][0])
+    categories = models.CharField('Categories', max_length=(20))
     photo = models.CharField(max_length=200)
     profile = models.ForeignKey(Profile, related_name='usersub', on_delete=models.CASCADE, default=0)
 
