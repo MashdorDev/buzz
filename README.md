@@ -46,6 +46,10 @@ Add new drinks to the database for fellow users to discover
 [![](https://i.imgur.com/pdGuQt0.png)](#)
 [![](https://i.imgur.com/k4WYReM.png)](#)
 [![](https://i.imgur.com/JvYJcUe.png)](#)
+[![](https://i.imgur.com/tEaZKx6.png)](#)
+
+[![](https://i.imgur.com/W5DtzvX.png)](#)
+
 
 ### ERD
 [![](https://i.imgur.com/UTb19kK.png)](#)
