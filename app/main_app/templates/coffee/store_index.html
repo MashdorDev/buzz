@@ -10,4 +10,39 @@
   <a href="/coffee/create/{{store.id}}/">Add a new coffee</a>
 </div>
 
+{% for c in coffee %}
+<br>
+<div class="card" >
+  <div class="subtitle is-6"></div>
+
+  <div class="columns">
+    <div class="column">
+      <p class="bd-notification is-info">
+        <div class="subtitle is-4">
+          {{c.name}}
+        </div>
+        {{c.categories}}
+      </p>
+      <div class="columns is-mobile">
+        <div
+          class="column"
+          style="
+    margin-left: 2vw;
+"
+        >
+          <img src="{{c.photo}}" alt="photo of {{c.name}} " />
+        </div>
+        <div class="column">
+          <div class="subtitle is-6">
+            Been favorited {{c.favorite_count}}
+          </div>
+          <div class="subtitle is-6">Rating - {{c.rating}} / 5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+{%endfor %}
+
 {% endblock %}
