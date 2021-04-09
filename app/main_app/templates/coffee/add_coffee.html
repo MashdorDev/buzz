@@ -7,17 +7,17 @@
 <form action="/coffee/create/{{store.id}}/" enctype="multipart/form-data" method="POST">
   {% csrf_token %}
   <h1> Add a drink to {{store.name}}</h1>
-  <label>name: <input name="name" ></label>
+  <label>name: <input name="name" required></label>
   <br>
-  <label>Type: <select name="categories">
-    <option value="C">Coffee</option>
-    <option value="IC">Iced Coffee</option>
-    <option value="E">Espresso</option>
-    <option value="C">Cappucino</option>
+  <label>Type: <select name="categories" required>
+    <option value="Coffee">Coffee</option>
+    <option value="Iced-Coffee">Iced Coffee</option>
+    <option value="Espresso">Espresso</option>
+    <option value="Cappucino">Cappucino</option>
   </select></label>
   <br>
   <br>
-  <label>Photo: <input type="file" name="photo-file"></label>
+  <label>Photo: <input type="file" name="photo-file" required></label>
   <br>
   <button>Submit</button>
 </form>
