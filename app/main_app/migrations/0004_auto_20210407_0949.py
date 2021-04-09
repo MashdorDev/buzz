@@ -8,16 +8,3 @@ class Migration(migrations.Migration):
     dependencies = [
         ('main_app', '0003_auto_20210405_2129'),
     ]
-
-    operations = [
-        migrations.RenameField(
-            model_name='admin_coffee',
-            old_name='Store_id',
-            new_name='store_id',
-        ),
-        migrations.RenameField(
-            model_name='user_coffee',
-            old_name='Store_id',
-            new_name='store_id',
-        ),
-    ]

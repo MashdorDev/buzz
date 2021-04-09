@@ -1,15 +1,76 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>Submissions</h1>
-{% for u in mine_user %}
-<div>
-  <h1>{{u.name}}</h1>
-  <h1>pending approval</h1>
+{% for c in mine_user %}
+<br />
+
+<div class="card">
+  <div
+    class="columns is-multiline is-mobile"
+    style="display: flex;
+           justify-content: center;
+           align-items: center;"
+  >
+    <div
+      class="column is-5"
+      style="display: flex;
+           justify-content: center;
+           align-items: center;"
+    >
+      <img
+        src="{{c.image_url}}"
+        alt="Store Picture"
+        style=" width:30vw;
+      height:18vh;         display: flex;
+               justify-content: center;
+               align-items: center;"
+      />
+    </div>
+    <div class="column">
+      <div class="bd-notification is-primary">
+        <h3>{{c.name}}</h3>
+        <h4 class="button is-warning is-loading">Pending Approval</h4>
+      </div>
+    </div>
+  </div>
 </div>
-{% endfor %} {% for a in mine_admin %}
-<div>
-  <h1>{{a.name}}</h1>
-  <h1>approved</h1>
-</div>
+
+<br />
+
+{% endfor %} {% for c in mine_admin %}
+<br />
+<a href="/store/{{c.id}}">
+  <div class="card">
+    <div
+      class="columns is-multiline is-mobile"
+      style="display: flex;
+           justify-content: center;
+           align-items: center;"
+    >
+      <div
+        class="column is-5"
+        style="display: flex;
+           justify-content: center;
+           align-items: center;"
+      >
+        <img
+          src="{{c.image_url}}"
+          alt="Store Picture"
+          style=" width:30vw;
+      height:18vh;         display: flex;
+               justify-content: center;
+               align-items: center;"
+        />
+      </div>
+      <div class="column">
+        <div class="bd-notification is-primary">
+          <h3>{{c.name}}</h3>
+          <h4 class="button is-success">Approved</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+<br />
 
 {% endfor %} {% endblock %}
