@@ -11,19 +11,36 @@
       <img src="{{coffee.photo}}" alt="Photo of the coffee" />
       <form method="POST" action="/addfavorite/{{coffee.id}}/">
         {% csrf_token %}
-        <button>Like</button>
+
+        <button class="button is-black is-outlined">
+          <i class="fas fa-heart fa-2x" style="color: black;"></i>
+        </button>
       </form>
       <h1>Name: {{coffee.name}}</h1>
       <h2>type: {{coffee.categories}}</h2>
       <h3>Store: {{store.name}}</h3>
       <h3>rating: {{coffee.rating}}</h3>
-      <a href="/addreview/{{coffee.id}}/">Add a review</a>
+      <a class="button is-black is-outlined" href="/addreview/{{coffee.id}}/"
+        >Add a review</a
+      >
     </div>
   </div>
 </div>
 
 {%for i in reviews%}
-<h1>{{i.profile.user.username}}</h1>
-<h1>{{i.review}}</h1>
+<div class="card" style="text-align: center;">
+  <div
+    class="card-content"
+    style="margin-top: 2vh;
+          margin-bottom: 0px;"
+  >
+    <span class="title is-3 is-spaced"></span>
+    <div class="subtitle">
+      <h1>{{i.profile.user.username}}</h1>
+      <h1>"{{i.review}}"</h1>
+      <h1>{{i.rating}} / 5</h1>
+    </div>
+  </div>
+</div>
 
 {% endfor %} {% endblock %}
