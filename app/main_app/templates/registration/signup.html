@@ -16,25 +16,54 @@
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300&display=swap" rel="stylesheet">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Buzz Stuff</title>
   </head>
-  <body lang="en">
-        <h1>Sign Up</h1>
+  <body lang="en"
+        style="
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;">
+        <h1 class="title is-1"
+        style="margin-top: 5vh;"
+        >Sign Up</h1>
     {% if error_message %}
     <p class="red-text">{{ error_message }}</p>
     {% endif %}
-    <div class="content" style=" margin-left: 5vw; margin-right: 5vw;">
+    <div class="content"
+         style="margin-left: 5vw;margin-right: 5vw;font-family: 'Darker Grotesque';">
       <div class="columns">
         <div
           class=" column is-three-fifths is-offset-one-fifth"
           style="
-          text-align: center;"
-        ><form method="post" action="{% url 'signup' %}">
+          text-align: center;
+          margin-top: 10vh;
+          "
+        ><form method="post" action="{% url 'signup' %}" style="text-align: left;">
           {% csrf_token %}
 
-           {{ form.as_p }}
-          <input type="submit" class="btn" value="signup" />
+           {{ form.as_table }}
+          <input class="button is-warning" type="submit" class="btn" value="signup"
+          style="
+            left: 25vw;
+            right: 25vw;
+            top: 5vh;
+            bottom: 5vh;
+            "
+           />
         </form>
 
       </div>
@@ -48,7 +77,10 @@
         position: fixed;
         bottom:0;
         width: 100%;
-        margin-left: 0; margin-right: 0;"
+        margin-left: 0;
+        margin-right: 0;
+        background-color: grey;
+        "
     >
       <div
         class="navbar-menu"
