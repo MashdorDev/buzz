@@ -9,8 +9,7 @@
 The app that fuels your day
 </h1>
 <h1 align ="center">
-  [![](https://bestbuzzc.herokuapp.com/)](#)
-
+  <a href="https://github.com/Ckrcok/buzz">To The Website</a>
 </h1>
         
 # About Buzz
