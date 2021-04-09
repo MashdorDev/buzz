@@ -37,7 +37,7 @@ Add new drinks to the database for fellow users to discover
 
 
 # Photo Gallery 
-[![](https://i.imgur.com/wlFvnhh.png](#)
+[![](https://i.imgur.com/wlFvnhh.png)](#)
 [![](https://i.imgur.com/5S27RTQ.png)](#)
 [![](https://i.imgur.com/xehsYdK.png)](#)
 [![](https://i.imgur.com/Z0WOEir.png)](#)
