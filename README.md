@@ -7,10 +7,7 @@
 </p>
 <h1 align ="center">
 The app that fuels your day
-    <a href="https://github.com/Ckrcok/buzz">To The Website</a>
-</h1>
-<h1 align ="center">
-
+<a href="https://github.com/Ckrcok/buzz">To The Website</a>
 </h1>
         
 # About Buzz
@@ -34,14 +31,21 @@ Add new drinks to the database for fellow users to discover
 <ul>
 <li>Django
 <li>Python
+<li>Yelp API
 </ul>
 
 
 
-# ERD 
-
+# Photo Gallery 
+[![](https://i.imgur.com/wlFvnhh.png](#)
+[![](https://i.imgur.com/5S27RTQ.png)](#)
+[![](https://i.imgur.com/xehsYdK.png)](#)
+[![](https://i.imgur.com/Z0WOEir.png)](#)
+[![](https://i.imgur.com/pdGuQt0.png)](#)
+[![](https://i.imgur.com/k4WYReM.png)](#)
 [![](https://i.imgur.com/UTb19kK.png)](#)
-
+[![](https://i.imgur.com/UTb19kK.png)](#)
+[![](https://i.imgur.com/JvYJcUe.png)](#)
 
 <hr>
 
