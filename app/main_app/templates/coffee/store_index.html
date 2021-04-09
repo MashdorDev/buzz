@@ -1,13 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="card">
-  <h1>store index</h1>
+  <h1>{{store.name}}</h1>
 
   <img src="{{store.image_url}}" alt="" />
 
-  <h1>{{store.name}}</h1>
 
-  <a href="/coffee/create/{{store.id}}/">Add a new coffee</a>
+
+  <a style="margin-bottom: 2vh;margin-top: 2vh;" class="button is-warning" href="/coffee/create/{{store.id}}/">Add a new coffee</a>
 </div>
 
 {% for c in coffee %}
