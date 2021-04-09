@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/Ckrcok/buzz">
-    <img alt="Buzz Logo" src="https://i.imgur.com/qDVb7E0.png" width="800"/>
+    <img alt="Buzz Logo" src="https://i.imgur.com/WgzL52g.png" width="800"/>
   </a>
 </p>
 <h1 align ="center">
