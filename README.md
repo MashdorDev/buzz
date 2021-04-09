@@ -41,7 +41,7 @@ Add new drinks to the database for fellow users to discover
 ### App
 
 <p align="center">
-  <a href="https://github.com/Ckrcok/buzz">
+ 
       [![](https://i.imgur.com/wlFvnhh.png)](#)
       [![](https://i.imgur.com/5S27RTQ.png)](#)
       [![](https://i.imgur.com/xehsYdK.png)](#)
@@ -51,7 +51,7 @@ Add new drinks to the database for fellow users to discover
       [![](https://i.imgur.com/JvYJcUe.png)](#)
       [![](https://i.imgur.com/tEaZKx6.png)](#)
       [![](https://i.imgur.com/W5DtzvX.png)](#)
-  </a>
+
 </p>
 
 
