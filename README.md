@@ -7,9 +7,10 @@
 </p>
 <h1 align ="center">
 The app that fuels your day
+    <a href="https://github.com/Ckrcok/buzz">To The Website</a>
 </h1>
 <h1 align ="center">
-  <a href="https://github.com/Ckrcok/buzz">To The Website</a>
+
 </h1>
         
 # About Buzz
